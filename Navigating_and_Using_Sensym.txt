@@ -82,20 +82,10 @@ The HTML document is designed to serve as a frontend for a service-oriented plat
 
 For running this webstie we are using a virtual server built in by Django. I have not explored deployment capabilites yet. 
 Quick Run Directions: 
-Open and Navigate terminal to C:\Users\Mental Heath RDP\SenSymWebsite\buildDjango: use cd command
+Open and Navigate terminal to C: SenSym Website\buildDjango\aICounseling: use cd command
 Acitave virtual environment: rdp-env\Scripts\activate
-Go to C:\Users\Mental Heath RDP\SenSymWebsite\buildDjango\aICounseling  in the terminal and run development server: python manage.py runserver
+run development server: python manage.py runserver (you may need to install packages in this virtual server)
 open chrome and navigate - http://127.0.0.1:8000/
-
-Quick Log In Details:
-
-** user log in **
-username: user
-password: 123
-**admin log in **
-username: admin
-password: 123
-
 
 
 
@@ -103,7 +93,8 @@ Download and Extract Folder
 Load Folder onto VsCode
 Make sure pip and python3 are installed
 
-Open and Navigate terminal to C:\Users\Mental Heath RDP\SenSymWebsite\buildDjango\aICounseling: use cd command
+Using virtual server to deploy website 
+Open and Navigate terminal to SenSym Website\buildDjango\aICounseling: use cd command
 Set up Virual environment:python -m venv rdp-env
 **Only have to do this once**
 
