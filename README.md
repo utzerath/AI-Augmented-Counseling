@@ -2,7 +2,7 @@
 Learn more about this Research and Development Project (Artificial Intelligence Augmented Counseling) at https://research.gcu.edu/rdp/cse
 
 # About Our Team
-![image](https://github.com/utzerath/AI-Augmented-Counseling/assets/97542190/9a3aa1e7-065f-4040-a13c-eca2c3494e35)
+![image](https://github.com/utzerath/AI-Augmented-Counseling/assets/97542190/a1f5c2a3-9324-484f-a76e-701deb5ec17e)
 
 ### My part in this team:
 Build a website with Front and Backend Capabilites in order to optimze healthcare
