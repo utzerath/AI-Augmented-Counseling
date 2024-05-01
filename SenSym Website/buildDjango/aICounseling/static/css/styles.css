@@ -1,0 +1,212 @@
+/* static/userAuthentication/css/styles.css */
+/* static/userAuthentication/css/styles.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    background-image: url('{% static "images/background.png" %}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #FFF;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: 'Lato', Arial, sans-serif;
+    background-color: #e0ecff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: none;
+    border-bottom: 1px solid #000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+
+.website-name {
+    font-family: 'Pacifico';
+    color: #4763ff;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+actions {
+    display: flex;
+    gap: 20px;
+}
+
+.action-button {
+    background-color: transparent;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.action-button:hover {
+    background-color: #0033fe;
+    text-decoration: none;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    transition: transform 0.3s ease-in-out;
+}
+
+.date-box {
+    background-color: #e0ecff;
+    padding: 5px 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.date-text {
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.signup-Message {
+    color: #000;
+    font-weight: normal;
+    font-size: 20px;
+    display: flex;
+    font-family: 'Comfortaa';
+    text-align: center;
+}
+
+main {
+    background-color: #e0ecff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 110px); /* Adjust based on your header height */
+}
+
+.main-content {
+    background-color: #fff;
+    padding-top: 180px;
+    padding-right: 30px;
+    padding-bottom: 180px;
+    padding-left: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    text-align: center;
+}
+
+.main-button {
+    background-color: #4763ff;
+    padding: 10px 30px; /* Adjust padding */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.main-button a {
+    color: white;
+    text-decoration: none; /* Remove underline */
+}
+
+.main-button:hover {
+    background-color: #0033fe;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-control:focus {
+    border-color: #4763ff;
+    outline: none;
+}
+
+/* Style the video input field */
+.form-control[type="file"] {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 15px;
+}

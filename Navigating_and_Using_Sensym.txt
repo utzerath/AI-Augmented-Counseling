@@ -1,0 +1,134 @@
+For this Website we are using Django, a web development frameworks whish is designed to rapidly deploy websties from scratch
+Design is a template from a html5 webiste. Regardless, Html is adapted to our purposes
+
+---------------------------------------------------------------------------------------------------------------------------
+Key Django Files: 
+
+__init__.py:
+This file makes Python treat the directories as containing packages. It is generally empty but can be used to import certain modules from the package.
+
+admin.py:
+This file is used to register your models so that they can be managed through Django's admin interface.
+
+apps.py:
+Contains a class that represents the Django app and its configuration.
+
+askOpenAI.py:
+Not a standard Django file. This could be a custom file for handling interactions with OpenAI services, perhaps for integrating AI functionalities within the app.
+
+forms.py:
+Used to define Django Forms which are a powerful mechanism for processing and validating user input.
+
+models.py:
+This file is where you define the data models of your application. Each model typically corresponds to a single database table.
+
+tests.py:
+Contains test classes for your application. Django uses these tests to check the integrity of the application without affecting the live databases or other parts of the application.
+
+urls.py:
+This file is responsible for declaring the URL mappings for the application, connecting URLs to the corresponding view functions.
+
+views.py:
+Contains the logic and control flow for handling requests. Views retrieve data from the model and delegate formatting to the templates.
+
+db_connection.py:
+This appears to be a custom file, potentially used for setting up database connections or handling specific database operations outside of Django's ORM.
+
+manage.py:
+A command-line utility that lets you interact with this Django project. It's used to start the server, create migrations, create apps within the project, and much more.
+
+----------------------------------------------------------------------------------------------------------------------------
+Overview of Static Files
+1. CSS (Cascading Style Sheets)
+CSS is used for styling the content of web pages. It defines how HTML elements should be displayed, controlling layout, colors, fonts, and other aspects of presentation. In Django, CSS files are typically placed in a static directory within an app or the project root. During development, these files can be served by Django's development server, but in production, they are often served by a web server or a Content Delivery Network (CDN).
+
+2. Images
+Images are essential for enhancing the visual appeal and user interface of a website. In Django, image files can also be stored in the static directory, or they might be managed as media files (uploaded by users) that are stored separately in a media directory. Static images are part of the site's design, while media files are content that can change dynamically.
+
+3. JavaScript (JS)
+JavaScript is a programming language that runs in the browser and can manipulate web pages on the client side. It is used to add interactivity to web pages, such as dynamic content updates via AJAX, animations, and handling user interactions. In Django, JavaScript files are placed in the static directory and included in HTML templates using <script> tags.
+
+4. SCSS (Sassy CSS)
+SCSS is a syntax of SASS (Syntactically Awesome Style Sheets), which is a CSS preprocessor. It provides more powerful features than regular CSS, such as variables, nested rules, mixins, and functions, which can make CSS more maintainable and easier to write. SCSS files are compiled into standard CSS, often as part of a build process using tools like Webpack, Gulp, or Django-compressor. The output CSS is then included in Django as static files.
+
+5. Web Fonts
+Web fonts allow web designers to use custom fonts that are not installed on users' machines. These fonts are hosted externally (e.g., Google Fonts) or included in the Django project's static directory. They are referenced in CSS files using @font-face rules or linked directly in HTML templates with <link> tags.
+
+6. HTML Templates
+Templates in Django are HTML files that allow Python-like expressions for dynamic content rendering. These templates can include variables and tags, which Django replaces with actual data when rendering the page. Templates help in separating the presentation layer from business logic, adhering to the DRY (Don't Repeat Yourself) principle. Django templates are typically stored in a templates directory within an app and are managed by Django's templating engine.
+
+----------------------------------------------------------------------------------------------------------------------------
+Most Import Static File: ScreeningTest.html
+Breakdown of ScreeningTest.html: 
+This HTML document is structured to build a comprehensive web interface for a platform named "SenSym", which appears to focus on mental health services. It is detailed and includes various elements typical of a dynamic web application. Here’s a breakdown of the key components and functionalities coded in this document:
+
+Basic Structure
+Doctype and HTML Tags: The document starts with the <!DOCTYPE HTML> declaration, indicating that this is an HTML5 document. The <html> tag encloses all the content.
+Head Section
+Metadata and Links: Within the <head> section, there's a declaration of character set as UTF-8 and viewport settings for responsive design. CSS files for the main styling and font-awesome icons are linked. Additionally, there’s a conditional noscript tag that includes fallback CSS if JavaScript is disabled.
+Body Content
+Navigation and Layout: The body includes a navigation bar (<nav>), a header (<header>), and various sections (<section>) that structure the content. It uses an <a> tag within the header for navigation, pointing to the homepage and a menu.
+Dynamic Content: There are placeholders for Django template tags ({% url 'entries' %}) and variables ({{ username }}), which suggest server-side rendering of URLs and user-specific data.
+Forms: A comprehensive form (<form>) is used for user data input regarding a DUI screening assessment. It contains various input types for personal information, medical history, and detailed sections on behavioral, psychological, and social history. Django's {% csrf_token %} is included for cross-site request forgery protection.
+Interactivity and User Input: The document uses radio buttons, checkboxes, text inputs, and dropdowns to collect a wide range of information. Each input field is carefully labeled.
+Informational Sections: Additional informational content about member benefits, including descriptions of video walls and data-driven user profiles, suggests advanced features like facial recognition and emotional tuning during sessions.
+Footer
+Contact Information: The footer contains contact information, social media links, and copyright details, providing users with various ways to connect with the platform.
+Scripts
+JavaScript Inclusions: Scripts for jQuery and other libraries are included at the end of the body to enhance interactivity and functionality, such as responsive menus and form validations.
+Overall Impression
+The HTML document is designed to serve as a frontend for a service-oriented platform focusing on mental health and DUI assessments. It integrates static resources (CSS, JavaScript) and dynamic content generation (Django template tags), ensuring a responsive and user-centered interface. The structure is comprehensive, with detailed sections for collecting and presenting information pertinent to users and their interactions with the service.
+----------------------------------------------------------------------------------------------------------------------------
+
+For running this webstie we are using a virtual server built in by Django. I have not explored deployment capabilites yet. 
+Quick Run Directions: 
+Open and Navigate terminal to C:\Users\Mental Heath RDP\SenSymWebsite\buildDjango: use cd command
+Acitave virtual environment: rdp-env\Scripts\activate
+Go to C:\Users\Mental Heath RDP\SenSymWebsite\buildDjango\aICounseling  in the terminal and run development server: python manage.py runserver
+open chrome and navigate - http://127.0.0.1:8000/
+
+Quick Log In Details:
+
+** user log in **
+username: user
+password: 123
+**admin log in **
+username: admin
+password: 123
+
+
+
+
+Download and Extract Folder
+Load Folder onto VsCode
+Make sure pip and python3 are installed
+
+Open and Navigate terminal to C:\Users\Mental Heath RDP\SenSymWebsite\buildDjango\aICounseling: use cd command
+Set up Virual environment:python -m venv rdp-env
+**Only have to do this once**
+
+
+Acitave virtual environment: rdp-env\Scripts\activate
+pip install django
+pip install django-sass-processor
+pip install pymongo
+pip install Pillow
+pip install openai
+pip install gridFS
+pip install pymongo
+Intstall any other libraries not mentioned here
+Go to C:\Users\Mental Heath RDP\SenSymWebsite\buildDjango\aICounseling and run development server: python manage.py runserver
+Open Chrome and naviagte to Django Development Server URL: 
+
+
+
+Connect to your local MongoDB:
+in vscode, open up db_connection.py and make sure the url is to your MongoDB
+import pymongo
+from gridfs import GridFS
+url = 'mongodb://192.168.8.190:27017/'
+client = pymongo.MongoClient(url)
+db = client['aICounseling']
+fs = GridFS(db,collection = 'files')
+
+

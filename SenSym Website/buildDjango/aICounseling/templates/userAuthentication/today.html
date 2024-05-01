@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Generic</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/main.css" />
+		<noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/homepage">SenSym</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="/homepage">Home</a></li>
+								<li><a href="/signup">Sign Up</a></li>
+								<li><a href="{% url 'entries' %}?username={{ username }}">Entries</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<div class="logo"><span class="icon fa-gem"></span></div>
+								<h2>Today</h2>
+								<p>Start Journaling! <a href="{% url 'entries' %}?username={{ username }}"> See Your Entries Here</a></p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+									<form action="/today" method="post" enctype="multipart/form-data">
+										{% csrf_token %}
+										<input type="hidden" name="username" value="{{ username }}">
+										<div class="form-group">
+											<label for="text_entry">Write your journal entry:</label>
+											<div class="input-wrapper">
+												<textarea class="form-control" id="text_entry" name="text_entry" rows="7"></textarea>
+											</div>
+										</div>
+										<p>&nbsp;</p>
+										<!-- Video Upload Input -->
+										<div class="form-group">
+											<label for="video">Upload a Video file:</label>
+											<div class="input-wrapper">
+												<input type="file" class="form-control" id="video" name="video" accept="video/*">
+											</div>
+										</div>
+										<p>&nbsp;</p>
+										<div class="form-group">
+											<label for="other_file">Upload Audio file:</label>
+											<div class="input-wrapper">
+												<input type="file" class="form-control" id="audio" name="audio">
+											</div>
+										</div>
+										<p>&nbsp;</p>
+										<div class="form-group">
+											<label for="other_file">Upload other file:</label>
+											<div class="input-wrapper">
+												<input type="file" class="form-control" id="other_files" name="other_files">
+											</div>
+										</div>
+										<p>&nbsp;</p>
+										<button type="submit">Log Entry</button>
+									</form>
+									<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+									<h3 class="major">Member Benefits</h3>
+									<p>Here at SenSym we believe that Mental Health is a rising concern in America. We want to offer our clients the oppurtunity to have on-demand journaling and unqiue conseling sessions. This includes video walls that are able to reflect your emotions, facial recongition, and data-driven user profiles. </p>
+
+									<section class="features">
+										<article>
+											<a href="#" class="image"><img src="static/images/videoRoomPic.png" alt="" /></a>
+											<h3 class="major">Video Walls</h3>
+											<p>In our in-person couseling session, members will be greeted and logged into there user profile via facial recognition. During this session, video walls will reflect your emotions and behavior. These images are tuned by professional psychologists. </p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="static/images/userDataJournalPic.png" alt="" /></a>
+											<h3 class="major">Data-Driven User Profiles</h3>
+											<p>All members will have a user profile where one we can track personal growth and progress. We are going to be analyizing behavior patterns, emotions, and more. </p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+									</section>
+
+								</div>
+							</div>
+
+					</section>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p>Have any questions? Contact us and we will get back with you!</p>
+							<ul class="contact">
+								<li class="icon solid fa-home">
+									GCU<br />
+									3033 Camelback Road<br />
+									Phoenix, Az 85017
+								</li>
+								<li class="icon solid fa-phone">(000) 000-0000</li>
+								<li class="icon solid fa-envelope"><a href="#">information@SenSym.tld</a></li>
+								<li class="icon brands fa-twitter"><a href="#">twitter.com/SenSym-tld</a></li>
+								<li class="icon brands fa-facebook-f"><a href="#">facebook.com/SenSym-tld</a></li>
+								<li class="icon brands fa-instagram"><a href="#">instagram.com/SenSym-tld</a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; SenSym Inc. All rights reserved.</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/jquery.scrollex.min.js"></script>
+			<script src="static/js/browser.min.js"></script>
+			<script src="static/js/breakpoints.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>

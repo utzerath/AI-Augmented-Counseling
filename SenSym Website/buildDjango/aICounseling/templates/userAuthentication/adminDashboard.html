@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Generic</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/homepage">SenSym</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="/homepage">Home</a></li>
+								<li><a href="/signup">Sign Up</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						
+						<header>
+							
+								<div class="inner">
+									<div class="logo"><span class="icon fa-gem"></span></div>
+									<h2>Admin Dashboard</h2>
+									<p>Select a user to view their Journals</p>
+								</div>
+							
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+			
+									<form action="/adminDashboard" method="post" enctype="multipart/form-data">
+										{% csrf_token %}
+										<input type="hidden" name="username" value="{{ username }}">
+									</form>
+
+									{% block content %}
+									<h1>List of Users: </h1>
+				
+									<ul>
+										{% for user in users %}
+											<li><a href="{% url 'adminDashboardWithUsername' selected_username=user.username %}">{{ user.username }}</a></li>
+										{% endfor %}
+									</ul>
+				
+				
+									<ul>
+									{% if textEntries %}
+										<details>
+											<summary>Text Journals of {{ selected_user }}</summary>
+											<ul>
+												{% for textEntry in textEntries %}
+													<li>
+														<h3>{{ textEntry.date }}</h3>
+														<p>{{ textEntry.text_entry }}</p>
+													</li>
+												{% endfor %}
+											</ul>
+										</details>
+									{% endif %}
+									
+				
+									{% if videoEntries %}
+										<details>
+											<summary>Video Journals of {{ selected_user }}</summary>
+											<ul>
+												{% for videoEntry in videoEntries %}
+													<li>
+														<h3>{{ videoEntry.date }}</h3>
+														<p><a href="{% url 'serve_file' file_id=videoEntry.video_id %}" download>Download Video</a></p>
+													</li>
+												{% endfor %}
+											</ul>
+										</details>
+									{% endif %}
+									{% if audioEntries %}
+										<details>
+											<summary>Audio Journals of {{ selected_user }}</summary>
+											<ul>
+												{% for audioEntry in audioEntries %}
+													<li>
+														<h3>{{ audioEntry.date }}</h3>
+														<p><a href="{% url 'serve_file' file_id=audioEntry.audio_id %}" download>Download Audio</a></p>
+													</li>
+												{% endfor %}
+											</ul>
+										</details>
+									{% endif %}
+									{% if audioEntries %}
+										<details>
+											<summary>Other Journals of {{ selected_user }}</summary>
+											<ul>
+												{% for otherEntry in otherEntries %}
+													<li>
+														<h3>{{ otherEntry.date }}</h3>
+														<p><a href="{% url 'serve_file' file_id=otherEntry.otherFile_id %}" download>Download File</a></p>
+													</li>
+												{% endfor %}
+											</ul>
+										</details>
+									{% endif %}
+									</ul>
+								
+									{% endblock %}
+									
+									<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+									
+									<h3 class="major"> Member Benefits</h3>
+									<p>Here at SenSym we believe that Mental Health is a rising concern in America. We want to offer our clients the oppurtunity to have on-demand journaling and unqiue conseling sessions. This includes video walls that are able to reflect your emotions, facial recongition, and data-driven user profiles. </p>
+
+									<section class="features">
+									<article>
+										<a href="#" class="image"><img src="{% static 'images/videoRoomPic.png' %}" alt="" /></a>
+										<h3 class="major">Video Walls</h3>
+										<p>In our in-person couseling session, members will be greeted and logged into there user profile via facial recognition. During this session, video walls will reflect your emotions and behavior. These images are tuned by professional psychologists. </p>
+										<a href="#" class="special">Learn more</a>
+									</article>
+									<article>
+										<a href="#" class="image"><img src="{% static 'images/userDataJournalPic.png' %}" alt="" /></a>
+										<h3 class="major">Data-Driven User Profiles</h3>
+										<p>All members will have a user profile where one we can track personal growth and progress. We are going to be analyizing behavior patterns, emotions, and more. </p>
+										<a href="#" class="special">Learn more</a>
+									</article>
+									</section>
+
+								</div>
+							</div>
+
+					</section>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p>Have any questions? Contact us and we will get back with you!</p>
+							<ul class="contact">
+								<li class="icon solid fa-home">
+									GCU<br />
+									3033 Camelback Road<br />
+									Phoenix, Az 85017
+								</li>
+								<li class="icon solid fa-phone">(000) 000-0000</li>
+								<li class="icon solid fa-envelope"><a href="#">information@SenSym.tld</a></li>
+								<li class="icon brands fa-twitter"><a href="#">twitter.com/SenSym-tld</a></li>
+								<li class="icon brands fa-facebook-f"><a href="#">facebook.com/SenSym-tld</a></li>
+								<li class="icon brands fa-instagram"><a href="#">instagram.com/SenSym-tld</a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; SenSym Inc. All rights reserved.</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,1858 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Generic</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/main.css" />
+		<link rel="stylesheet" href="static/css/fontawesome-all.min.css" />
+		<noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/homepage">SenSym</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="/homepage">Home</a></li>
+								<li><a href="/signup">Sign Up</a></li>
+								<li><a href="{% url 'entries' %}?username={{ username }}">Entries</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<div class="logo"><span class="icon fa-gem"></span></div>
+								<h2>DUI Screening Assignment</h2>
+								<p>Want to view your Journal Entries? <a href="{% url 'entries' %}?username={{ username }}"> See Your Entries Here</a></p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+									
+									<form action="/screeningTest" method="post">
+										{% csrf_token %}
+										<div style="text-align: center;">
+											<h2>Client Information</h2>
+										</div>
+
+										<div class="form-group" style="display: flex; justify-content: space-between;">
+											<div style="flex: 1; margin-right: 10px;">
+												<label for="last_name">Last Name:</label>
+												<input type="text" id="last_name" name="last_name" required style="width: 100%;">
+											</div>
+											<div style="flex: 1; margin-right: 10px;">
+												<label for="first_name">First Name:</label>
+												<input type="text" id="first_name" name="first_name" required style="width: 100%;">
+											</div>
+											<div style="flex: 1;">
+												<label for="middle_name">Middle Name:</label>
+												<input type="text" id="middle_name" name="middle_name" style="width: 100%;">
+											</div>
+										</div>
+										<div class="form-group" style="margin-top: 10px;">
+											<label for="dob">D.O.B:</label>
+											<div style="display: flex; justify-content: space-between;">
+												<input type="text" id="dob_month" name="dob_month" placeholder="Month" required style="flex: 1; margin-right: 10px;">
+												<input type="text" id="dob_day" name="dob_day" placeholder="Day" required style="flex: 1; margin-right: 10px;">
+												<input type="text" id="dob_year" name="dob_year" placeholder="Year" required style="flex: 1;">
+											</div>
+										</div>
+										<div class="form-group" style="margin-top: 10px;">
+											<label for="address">Address:</label>
+											<textarea id="address" name="address" rows="2" required style="width: 100%;"></textarea>
+										</div>
+										<div class="form-group" style="margin-top: 10px;">
+											<label>Sex:</label>
+											<input type="radio" id="sex_male" name="sex" value="M">
+											<label for="sex_male">Male</label>
+											<input type="radio" id="sex_female" name="sex" value="F">
+											<label for="sex_female">Female</label>
+										</div>
+										<div class="form-group" style="margin-top: 10px;">
+											<label>Special Accommodations Required:</label>
+											<input type="radio" id="accommodation_no" name="special_accommodations" value="No">
+											<label for="accommodation_no">No</label>
+											<input type="radio" id="accommodation_yes" name="special_accommodations" value="Yes">
+											<label for="accommodation_yes">Yes</label>
+										</div>
+										<div class="form-group" style="margin-top: 10px;">
+											<label>Court-Ordered:</label>
+											<input type="radio" id="court_ordered_yes" name="court_ordered" value="Yes">
+											<label for="court_ordered_yes">Yes</label>
+											<input type="radio" id="court_ordered_no" name="court_ordered" value="No">
+											<label for="court_ordered_no">No</label>
+										</div>
+
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>Intake/Assessment</h2>
+										</div>
+
+										<div class="form-group" style="margin-top: 10px;">
+											<h4>Presenting Behavioral Health Issues</h4>
+											<input type="checkbox" id="Substance_Issues" name="behavioral_health_issues" value="Substance Issue"> 
+											<label for= "Substance_Issues">Substance Issue</label>
+											<input type="checkbox" id="Domestic_Violence" name="behavioral_health_issues" value="Domestic Violence">
+											<label for= "Domestic_Violence">Domestic Violence</label>
+											<input type="checkbox" id="Emotional_Behavioral_Issue" name="behavioral_health_issues" value="Emotional/Behavioral Issue">
+											<label for= "Emotional_Behavioral_Issue">Emotional/Behavioral Issue</label>
+											<!-- Add other radio buttons as needed... -->
+										</div>
+
+										<div class="form-group" style="margin-top: 10px;">
+											<h4>Psychological History</h4>
+											<input type="checkbox" id="Anxiety" name="psychological_history" value="Anxiety">
+											<label for= "Anxiety">Anxiety</label>
+											<input type="checkbox" id="Suicide" name="psychological_history" value="Suicide">
+											<label for= "Suicide">Suicide</label>
+											<input type="checkbox" id="Gambling" name="psychological_history" value="Gambling">
+											<label for= "Gambling">Gambling</label>
+											<input type="checkbox" id="Mental_Illness" name="psychological_history" value="Mental_Illness">
+											<label for= "Mental_Illness">Mental Illness</label>
+											<input type="checkbox" id="Depression" name="psychological_history" value="Depression">
+											<label for= "Depression">Depression</label>
+											<input type="checkbox" id="Adjustment" name="psychological_history" value="Adjustment">
+											<label for= "Adjustment">Adjustment</label>
+											<input type="checkbox" id="Eating Disorder" name="psychological_history" value="Eating Disorder">
+											<label for= "Eating Disorder">Eating Disorder</label>
+
+											<!-- Add other radio buttons as needed... -->
+											<label for="psychological_other">Other</label>
+											<input type="text" id="psychological_other" name="psychological_other">
+										</div>
+
+										<div class="form-group" style="margin-top: 10px;">
+											<h4>Social History</h4>
+											<input type="checkbox" id="Abusive_Relationships" name="Social_History" value="Abusive Relationships">
+											<label for= "Abusive_Relationships">Abusive Relationships</label>
+											<input type="checkbox" id="Divorce" name="Social_History" value="Divorce">
+											<label for= "Divorce">Divorce</label>
+											<input type="checkbox" id="Family_Issue" name="Social_History" value="Family Issue">
+											<label for= "Family_Issue">Family Issue</label>
+											<input type="checkbox" id="Childhood_Abuse" name="Social_History" value="Childhood Abuse">
+											<label for= "Childhood_Abuse">Childhood Abuse</label>
+											<input type="checkbox" id="Personal_Issues" name="Social_History" value="Personal Issues">
+											<label for= "Personal_Issues">Personal Issues</label>
+
+											<!-- Add other radio buttons as needed... -->
+											<label for="social_history_other">Other</label>
+											<input type="text" id="social_history_other" name="social_history_other">
+										</div>
+										<!-- Add more sections for Social History, Educational and Vocational History, etc. -->
+										<div class="form-group" style="margin-top: 10px;">
+											<h4>Educational_and_Vocational_History</h4>
+											<input type="radio" id="Tech_School" name="Educational_and_Vocational_History" value="Tech_School">
+											<label for= "Tech_School">Tech School</label>
+											<input type="radio" id="High_School" name="Educational_and_Vocational_History" value="High_School">
+											<label for= "High_School">High School</label>
+											<input type="radio" id="Community College" name="Educational_and_Vocational_History" value="Community College">
+											<label for= "Community College">Community College</label>
+											<input type="radio" id="College" name="Educaational_History" value="College">
+											<label for= "College">College</label>
+											<input type="radio" id="University" name="Educational_and_Vocational_History" value="University">
+											<label for= "University">University</label>
+
+											<!-- Add other radio buttons as needed... -->
+											<label for="Educational_and_Vocational_History_Other">Other</label>
+											<input type="text" id="Educational_and_Vocational_History_Other" name="Educational_and_Vocational_History_Other">
+										</div>
+
+										<div class="form-group" style="margin-top: 10px;">
+											<h4>Medical History (Check current and past conditions, medications, allergies, special diets, and needs)</h4>
+											<input type="checkbox" id="AIDS_HIV" name="medical_history" value="AIDS/HIV">
+											<label for="AIDS_HIV">AIDS/HIV</label>
+											<input type="checkbox" id="Allergy" name="medical_history" value="Allergy">
+											<label for="Allergy">Allergy</label>
+											<input type="checkbox" id="Asthma" name="medical_history" value="Asthma">
+											<label for="Asthma">Asthma</label>
+											<input type="checkbox" id="Blood_Pressure" name="medical_history" value="Blood_Pressure">
+											<label for="Blood_Pressure">Blood Pressure</label>
+											<input type="checkbox" id="Brain_Trauma" name="medical_history" value="Brain_Trauma">
+											<label for="Brain_Trauma">Brain Trauma</label>
+											<input type="checkbox" id="Cancer" name="medical_history" value="Cancer">
+											<label for="Cancer">Cancer</label>
+											<input type="checkbox" id="Diabetes" name="medical_history" value="Diabetes">
+											<label for="Diabetes">Diabetes</label>
+											<input type="checkbox" id="Emphysema" name="medical_history" value="Emphysema">
+											<label for="Emphysema">Emphysema</label>
+											<input type="checkbox" id="Epilepsy" name="medical_history" value="Epilepsy">
+											<label for="Epilepsy">Epilepsy</label>
+											<input type="checkbox" id="Hearing" name="medical_history" value="Hearing">
+											<label for="Hearing">Hearing</label>
+											<input type="checkbox" id="Heart_Disease" name="medical_history" value="Heart_Disease">
+											<label for="Heart_Disease">Heart Disease</label>
+											<input type="checkbox" id="Kidney" name="medical_history" value="Kidney">
+											<label for="Kidney">Kidney</label>
+											<input type="checkbox" id="Liver" name="medical_history" value="Liver">
+											<label for="Liver">Liver</label>
+											<input type="checkbox" id="STD" name="medical_history" value="STD">
+											<label for="STD">STD</label>
+											<input type="checkbox" id="Ulcers" name="medical_history" value="Ulcers">
+											<label for="Ulcers">Ulcers</label>
+											<input type="checkbox" id="Vision" name="medical_history" value="Vision">
+											<label for="Vision">Vision</label>
+											<label for="Other">Other</label>
+											<input type="text" id="Other" name="Other">
+											<label for="Prescribed_Medications">Prescribed Medications:</label>
+											<input type="text" id="Prescribed_Medications" name="Prescribed_Medications">
+											<label for="Over_Counter_Medications">Over Counter Medications:</label>
+											<input type="text" id="Over_Counter_Medications" name="Over_Counter_Medications">
+										</div>
+										
+										<div class="form-group" style="margin-top: 10px;">
+											<h4>Medication & Substance Use History (Indicate all substances used and experimented with)</h4>
+											<table>
+												<thead>
+													<tr>
+														<th>Substance</th>
+														<th>Never Used</th>
+														<th>Date last Used</th>
+														<th>How Much Usually Used</th>
+														<th>How Often Usually Used</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Alcohol</td>
+														<td><input type="checkbox" id="alcohol_never" name="alcohol_never">
+														<label for="alcohol_never"></label></td>
+														<td><input type="text" name="alcohol_last_used"></td>
+														<td>
+															<select name="alcohol_amount">
+																<option value="1-3">1-3</option>
+																<option value="4-6">4-6</option>
+																<option value="7-12">7-12</option>
+																<option value="over 12">over 12</option>
+															</select>
+														</td>
+														<td>
+															<select name="alcohol_frequency">
+																<option value="Yearly">Yearly</option>
+																<option value="Monthly">Monthly</option>
+																<option value="Weekly">Weekly</option>
+																<option value="Daily">Daily</option>
+															</select>
+														</td>
+													</tr>
+
+													<tr>
+														<td>Antidepressants</td>
+														<td><input type="checkbox" id="antidepressants_never" name="antidepressants_never">
+														<label for="antidepressants_never"></label></td>
+														<td><input type="text" name="antidepressants_last_used"></td>
+														<td>
+															<select name="antidepressants_amount">
+																<option value="1-3">1-3</option>
+																<option value="4-6">4-6</option>
+																<option value="7-12">7-12</option>
+																<option value="over 12">over 12</option>
+															</select>
+														</td>
+														<td>
+															<select name="antidepressants_frequency">
+																<option value="Yearly">Yearly</option>
+																<option value="Monthly">Monthly</option>
+																<option value="Weekly">Weekly</option>
+																<option value="Daily">Daily</option>
+															</select>
+														</td>
+													</tr>
+
+													<tr>
+														<td>Antipsychotics</td>
+														<td><input type="checkbox" id="antipsychotics_never" name="antipsychotics_never">
+														<label for="antipsychotics_never"></label></td>
+														<td><input type="text" name="antipsychotics_last_used"></td>
+														<td>
+															<select name="antipsychotics_amount">
+																<option value="1-3">1-3</option>
+																<option value="4-6">4-6</option>
+																<option value="7-12">7-12</option>
+																<option value="over 12">over 12</option>
+															</select>
+														</td>
+														<td>
+															<select name="antipsychotics_frequency">
+																<option value="Yearly">Yearly</option>
+																<option value="Monthly">Monthly</option>
+																<option value="Weekly">Weekly</option>
+																<option value="Daily">Daily</option>
+															</select>
+														</td>
+													</tr>
+
+													<tr>
+														<td>Cocaine</td>
+														<td><input type="checkbox" id="cocaine_never" name="cocaine_never">
+														<label for="cocaine_never"></label></td>
+														<td><input type="text" name="cocaine_last_used"></td>
+														<td>
+															<select name="cocaine_amount">
+																<option value="1-3">1-3</option>
+																<option value="4-6">4-6</option>
+																<option value="7-12">7-12</option>
+																<option value="over 12">over 12</option>
+															</select>
+														</td>
+														<td>
+															<select name="cocaine_frequency">
+																<option value="Yearly">Yearly</option>
+																<option value="Monthly">Monthly</option>
+																<option value="Weekly">Weekly</option>
+																<option value="Daily">Daily</option>
+															</select>
+														</td>
+													</tr>
+
+													<tr>
+														<td>Hallucinogens</td>
+														<td><input type="checkbox" id="hallucinogens_never" name="Hallucinogens_never">
+														<label for="hallucinogens_never"></label></td>
+														<td><input type="text" name="Hallucinogens_last_used"></td>
+														<td>
+															<select name="Hallucinogens_amount">
+																<option value="1-3">1-3</option>
+																<option value="4-6">4-6</option>
+																<option value="7-12">7-12</option>
+																<option value="over 12">over 12</option>
+															</select>
+														</td>
+														<td>
+															<select name="Hallucinogens_frequency">
+																<option value="Yearly">Yearly</option>
+																<option value="Monthly">Monthly</option>
+																<option value="Weekly">Weekly</option>
+																<option value="Daily">Daily</option>
+															</select>
+														</td>
+													</tr>
+
+													<tr>
+														<td>Marijuana</td>
+														<td><input type="checkbox" id="marijuana_never" name="Marijuana_never">
+														<label for="marijuana_never"></label></td>
+														<td><input type="text" name="Marijuana_last_used"></td>
+														<td>
+															<select name="Marijuana_amount">
+																<option value="1-3">1-3</option>
+																<option value="4-6">4-6</option>
+																<option value="7-12">7-12</option>
+																<option value="over 12">over 12</option>
+															</select>
+														</td>
+														<td>
+															<select name="Marijuana_frequency">
+																<option value="Yearly">Yearly</option>
+																<option value="Monthly">Monthly</option>
+																<option value="Weekly">Weekly</option>
+																<option value="Daily">Daily</option>
+															</select>
+														</td>
+													</tr>
+
+													<tr>
+														<td>Narcotics</td>
+														<td><input type="checkbox" id="narcotics_never" name="narcotics_never">
+														<label for="narcotics_never"></label></td>
+														<td><input type="text" name="narcotics_last_used"></td>
+														<td>
+															<select name="narcotics_amount">
+																<option value="1-3">1-3</option>
+																<option value="4-6">4-6</option>
+																<option value="7-12">7-12</option>
+																<option value="over 12">over 12</option>
+															</select>
+														</td>
+														<td>
+															<select name="narcotics_frequency">
+																<option value="Yearly">Yearly</option>
+																<option value="Monthly">Monthly</option>
+																<option value="Weekly">Weekly</option>
+																<option value="Daily">Daily</option>
+															</select>
+														</td>
+													</tr>
+
+													<tr>
+														<td>Sedatives</td>
+														<td><input type="checkbox" id="sedatives_never" name="Sedatives_never">
+														<label for="sedatives_never"></label></td>
+														<td><input type="text" name="Sedatives_last_used"></td>
+														<td>
+															<select name="Sedatives_amount">
+																<option value="1-3">1-3</option>
+																<option value="4-6">4-6</option>
+																<option value="7-12">7-12</option>
+																<option value="over 12">over 12</option>
+															</select>
+														</td>
+														<td>
+															<select name="Sedatives_frequency">
+																<option value="Yearly">Yearly</option>
+																<option value="Monthly">Monthly</option>
+																<option value="Weekly">Weekly</option>
+																<option value="Daily">Daily</option>
+															</select>
+														</td>
+													</tr>
+
+													
+
+													<tr>
+														<td>Amphetamines</td>
+														<td><input type="checkbox" id="amphetamines_never" name="amphetamines_never">
+														<label for="amphetamines_never"></label></td>
+														<td><input type="text" name="amphetamines_last_used"></td>
+														<td>
+															<select name="amphetamines_amount">
+																<option value="1-3">1-3</option>
+																<option value="4-6">4-6</option>
+																<option value="7-12">7-12</option>
+																<option value="over 12">over 12</option>
+															</select>
+														</td>
+														<td>
+															<select name="amphetamines_frequency">
+																<option value="Yearly">Yearly</option>
+																<option value="Monthly">Monthly</option>
+																<option value="Weekly">Weekly</option>
+																<option value="Daily">Daily</option>
+															</select>
+														</td>
+													</tr>
+
+													<tr>
+														<td>Other</td>
+														<td><input type="checkbox" id="other_never" name="other_never">
+														<label for="other_never"></label></td>
+														<td><input type="text" name="other_last_used"></td>
+														<td>
+															<select name="other_amount">
+																<option value="1-3">1-3</option>
+																<option value="4-6">4-6</option>
+																<option value="7-12">7-12</option>
+																<option value="over 12">over 12</option>
+															</select>
+														</td>
+														<td>
+															<select name="other_frequency">
+																<option value="Yearly">Yearly</option>
+																<option value="Monthly">Monthly</option>
+																<option value="Weekly">Weekly</option>
+																<option value="Daily">Daily</option>
+															</select>
+														</td>
+													</tr>
+													<!-- Repeat this structure for each substance -->
+												</tbody>
+											</table>
+										</div>
+										
+										<div class="form-group" style="margin-top: 10px;">
+											<h4>Legal History (Check all that apply, including your current situation)</h4>
+											
+											<label for="DUI">DUI (alcohol or drug)</label>
+											<input type="radio" id="DUI_first_offense" name="DUI" value="First Offense">
+											<label for="DUI_first_offense">First Offense</label>
+											<input type="radio" id="DUI_second_offense" name="DUI" value="Second Offense">
+											<label for="DUI_second_offense">Second Offense</label>
+											<input type="radio" id="DUI_third_offense" name="DUI" value="Third Offense">
+											<label for="DUI_third_offense">Third Offense</label>
+											<br>
+										
+											<label for="non_DUI">Non-DUI (alcohol or drug)</label>
+											<input type="radio" id="non_DUI_first_offense" name="non_DUI" value="First Offense">
+											<label for="non_DUI_first_offense">First Offense</label>
+											<input type="radio" id="non_DUI_second_offense" name="non_DUI" value="Second Offense">
+											<label for="non_DUI_second_offense">Second Offense</label>
+											<input type="radio" id="non_DUI_third_offense" name="non_DUI" value="Third Offense">
+											<label for="non_DUI_third_offense">Third Offense</label>
+											<br>
+										
+											<label for="domestic_violence">Domestic Violence or family disturbances</label>
+											<input type="radio" id="domestic_violence_first_offense" name="domestic_violence" value="First Offense">
+											<label for="domestic_violence_first_offense">First Offense</label>
+											<input type="radio" id="domestic_violence_second_offense" name="domestic_violence" value="Second Offense">
+											<label for="domestic_violence_second_offense">Second Offense</label>
+											<input type="radio" id="domestic_violence_third_offense" name="domestic_violence" value="Third Offense">
+											<label for="domestic_violence_third_offense">Third Offense</label>
+											<br>
+											
+											<label for="domestic_violence_description">You MUST give a description of the circumstances that led to your referral for domestic violence treatment:</label>
+											<input type="text" id="domestic_violence_description" name="domestic_violence_description">
+											<br>
+										
+											<label for="restraining_order">Order of Protection (Restraining Order)</label>
+											<input type="checkbox" id="restraining_order" name="restraining_order">
+											<input type="text" id="restraining_order_date" name="restraining_order_date" placeholder="Date(s)">
+											<br>
+										
+											<label for="assault_conflict">Non D.V. Assault/Conflict</label>
+											<input type="radio" id="assault_conflict_first_offense" name="assault_conflict" value="First Offense">
+											<label for="assault_conflict_first_offense">First Offense</label>
+											<input type="radio" id="assault_conflict_second_offense" name="assault_conflict" value="Second Offense">
+											<label for="assault_conflict_second_offense">Second Offense</label>
+											<input type="radio" id="assault_conflict_third_offense" name="assault_conflict" value="Third Offense">
+											<label for="assault_conflict_third_offense">Third Offense</label>
+											<br>
+										
+											<label for="other_legal_issues">Other Legal Issues (Diversion, Incarceration, Probation, Parole)</label>
+											<input type="checkbox" id="other_legal_issues" name="other_legal_issues">
+											<input type="text" id="other_legal_issues_date" name="other_legal_issues_date" placeholder="Date(s)">
+										</div>
+											
+										<div class="form-group" style="margin-top: 10px;">
+											<h4>Behavioral Health Treatment and Behavioral Health Hospitalization History</h4>
+											<table>
+												<thead>
+													<tr>
+														<th></th>
+														<th>Agency</th>
+														<th>Purpose</th>
+														<th>Date</th>
+														<th>Assignment/Program</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><input type="checkbox" id="no_program" name="behavioral_health_history" value="No Program Attended">
+														<label for="no_program">No Program Attended</label></td>
+														<td><input type="text" name="no_program_agency"></td>
+														<td><input type="text" name="no_program_purpose"></td>
+														<td><input type="text" name="no_program_date"></td>
+														<td><input type="text" name="no_program_assignment"></td>
+													</tr>
+													<tr>
+														<td><input type="checkbox" id="prior_screening" name="behavioral_health_history" value="Prior Screening Assessment">
+														<label for="prior_screening">Prior Screening Assessment</label></td>
+														<td><input type="text" name="prior_screening_agency"></td>
+														<td><input type="text" name="prior_screening_purpose"></td>
+														<td><input type="text" name="prior_screening_date"></td>
+														<td><input type="text" name="prior_screening_assignment"></td>
+													</tr>
+													<tr>
+														<td><input type="checkbox" id="education_dui" name="behavioral_health_history" value="Education/DUI Class/Workshop">
+														<label for="education_dui">Education/DUI Class/Workshop</label></td>
+														<td><input type="text" name="education_dui_agency"></td>
+														<td><input type="text" name="education_dui_purpose"></td>
+														<td><input type="text" name="education_dui_date"></td>
+														<td><input type="text" name="education_dui_assignment"></td>
+													</tr>
+													<tr>
+														<td><input type="checkbox" id="outpatient_treatment" name="behavioral_health_history" value="Outpatient Treatment">
+														<label for="outpatient_treatment">Outpatient Treatment</label></td>
+														<td><input type="text" name="outpatient_treatment_agency"></td>
+														<td><input type="text" name="outpatient_treatment_purpose"></td>
+														<td><input type="text" name="outpatient_treatment_date"></td>
+														<td><input type="text" name="outpatient_treatment_assignment"></td>
+													</tr>
+													<tr>
+														<td><input type="checkbox" id="inpatient_treatment" name="behavioral_health_history" value="Inpatient Treatment">
+														<label for="inpatient_treatment">Inpatient Treatment</label></td>
+														<td><input type="text" name="inpatient_treatment_agency"></td>
+														<td><input type="text" name="inpatient_treatment_purpose"></td>
+														<td><input type="text" name="inpatient_treatment_date"></td>
+														<td><input type="text" name="inpatient_treatment_assignment"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>MAST</h2>
+										</div>
+
+										<div class="form-group" style="margin-top: 10px;">
+											<div class="question-container">
+												<span class="question-label">0. Do you enjoy a drink now and then?</span>
+												<div class="answer-container">
+													<input type="radio" id="q0_yes" name="q0" value="Yes">
+													<label class="answer-label" for="q0_yes">Yes</label>
+													<input type="radio" id="q0_no" name="q0" value="No">
+													<label class="answer-label" for="q0_no">No</label>
+												</div>
+											</div>
+											<!-- Question 1 -->
+											<div class="question-container">
+												<span class="question-label">1. Do you feel you are a normal drinker or drug user? <em>Normal means</em> you drink or use less than or about the same as most other people and you have not gotten into recurring trouble while drinking.</span>
+												<div class="answer-container">
+													<input type="radio" id="q1_yes" name="q1" value="Yes">
+													<label class="answer-label" for="q1_yes">Yes</label>
+													<input type="radio" id="q1_no" name="q1" value="No">
+													<label class="answer-label" for="q1_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">2. Have you ever awakened after drinking or drug use and found that you could not remember
+													a part of what happened?</span>
+												<div class="answer-container">
+													<input type="radio" id="q2_yes" name="q2" value="Yes">
+													<label class="answer-label" for="q2_yes">Yes</label>
+													<input type="radio" id="q2_no" name="q2" value="No">
+													<label class="answer-label" for="q2_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">3. Does anyone ever worry or complain about your drinking or drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="q3_yes" name="q3" value="Yes">
+													<label class="answer-label" for="q3_yes">Yes</label>
+													<input type="radio" id="q3_no" name="q3" value="No">
+													<label class="answer-label" for="q3_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">4. Can you stop drinking or drug use without a struggle after one or two drinks or uses?</span>
+												<div class="answer-container">
+													<input type="radio" id="q4_yes" name="q4" value="Yes">
+													<label class="answer-label" for="q4_yes">Yes</label>
+													<input type="radio" id="q4_no" name="q4" value="No">
+													<label class="answer-label" for="q4_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">5. Do you feel guilty about your drinking or drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="q5_yes" name="q5" value="Yes">
+													<label class="answer-label" for="q5_yes">Yes</label>
+													<input type="radio" id="q5_no" name="q5" value="No">
+													<label class="answer-label" for="q5_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">6. Do friends or relatives think you are a normal drinker or drug user?</span>
+												<div class="answer-container">
+													<input type="radio" id="q6_yes" name="q6" value="Yes">
+													<label class="answer-label" for="q6_yes">Yes</label>
+													<input type="radio" id="q6_no" name="q6" value="No">
+													<label class="answer-label" for="q6_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">7. Are you able to stop drinking or drug use when you want to?</span>
+												<div class="answer-container">
+													<input type="radio" id="q7_yes" name="q7" value="Yes">
+													<label class="answer-label" for="q7_yes">Yes</label>
+													<input type="radio" id="q7_no" name="q7" value="No">
+													<label class="answer-label" for="q7_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">8. Have you ever attended a meeting of Alcoholics Anonymous or any other 12 step meetings?</span>
+												<div class="answer-container">
+													<input type="radio" id="q8_yes" name="q8" value="Yes">
+													<label class="answer-label" for="q8_yes">Yes</label>
+													<input type="radio" id="q8_no" name="q8" value="No">
+													<label class="answer-label" for="q8_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">9. Have you gotten into physical fights when you have been drinking or using drugs? </span>
+												<div class="answer-container">
+													<input type="radio" id="q9_yes" name="q9" value="Yes">
+													<label class="answer-label" for="q1_yes">Yes</label>
+													<input type="radio" id="q9_no" name="q9" value="No">
+													<label class="answer-label" for="q9_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">10. Has your drinking or drug use ever created problems between you and your parents, another
+													relative, your spouse, or any girlfriend of boyfriend?</span>
+												<div class="answer-container">
+													<input type="radio" id="q10_yes" name="q10" value="Yes">
+													<label class="answer-label" for="q10_yes">Yes</label>
+													<input type="radio" id="q10_no" name="q10" value="No">
+													<label class="answer-label" for="q10_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">11. Has any family member of yours ever gone for help<em> about your</em> drinking or drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="q11_yes" name="q11" value="Yes">
+													<label class="answer-label" for="q11_yes">Yes</label>
+													<input type="radio" id="q11_no" name="q11" value="No">
+													<label class="answer-label" for="q11_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">12. Have you ever lost friends because of your drinking or drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="q12_yes" name="q12" value="Yes">
+													<label class="answer-label" for="q12_yes">Yes</label>
+													<input type="radio" id="q12_no" name="q12" value="No">
+													<label class="answer-label" for="q12_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">13. Have you ever gotten into trouble at work or school because of drinking and drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="q13_yes" name="q13" value="Yes">
+													<label class="answer-label" for="q13_yes">Yes</label>
+													<input type="radio" id="q13_no" name="q13" value="No">
+													<label class="answer-label" for="q13_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">14. Have you ever lost your job because of drinking and drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="q14_yes" name="q14" value="Yes">
+													<label class="answer-label" for="q14_yes">Yes</label>
+													<input type="radio" id="q14_no" name="q14" value="No">
+													<label class="answer-label" for="q14_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">15. Have you ever neglected your obligations (school, work, family, or job) for 2 or more days in
+													a row because you were drinking or using?</span>
+												<div class="answer-container">
+													<input type="radio" id="q15_yes" name="q15" value="Yes">
+													<label class="answer-label" for="q15_yes">Yes</label>
+													<input type="radio" id="q15_no" name="q15" value="No">
+													<label class="answer-label" for="q15_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">16. Do you drink or use drugs before noon fairly often?</span>
+												<div class="answer-container">
+													<input type="radio" id="q16_yes" name="q16" value="Yes">
+													<label class="answer-label" for="q16_yes">Yes</label>
+													<input type="radio" id="q16_no" name="q16" value="No">
+													<label class="answer-label" for="q16_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">17. Have you ever been told you have liver trouble? Cirrhosis?</span>
+												<div class="answer-container">
+													<input type="radio" id="q17_yes" name="q17" value="Yes">
+													<label class="answer-label" for="q17_yes">Yes</label>
+													<input type="radio" id="q17_no" name="q17" value="No">
+													<label class="answer-label" for="q17_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">18. After heavy drinking or drug use, have you ever had severe shaking, or heard voices or seen
+													things that really werent there?</span>
+												<div class="answer-container">
+													<input type="radio" id="q18_yes" name="q18" value="Yes">
+													<label class="answer-label" for="q18_yes">Yes</label>
+													<input type="radio" id="q18_no" name="q18" value="No">
+													<label class="answer-label" for="q18_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">19. Have you ever gone to anyone (education or treatment) for help about your drinking or drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="q19_yes" name="q19" value="Yes">
+													<label class="answer-label" for="q19_yes">Yes</label>
+													<input type="radio" id="q19_no" name="q19" value="No">
+													<label class="answer-label" for="q19_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">20. Have you ever been in a hospital (injury or illness) because of drinking or drug use? </span>
+												<div class="answer-container">
+													<input type="radio" id="q20_yes" name="q20" value="Yes">
+													<label class="answer-label" for="q20_yes">Yes</label>
+													<input type="radio" id="q20_no" name="q20" value="No">
+													<label class="answer-label" for="q20_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">21. Have you ever been a patient in a psychiatric hospital or on a psychiatric ward of a general
+													hospital where drinking or drug use was part of the problem that resulted in hospitalization? </span>
+												<div class="answer-container">
+													<input type="radio" id="q21_yes" name="q21" value="Yes">
+													<label class="answer-label" for="q21_yes">Yes</label>
+													<input type="radio" id="q21_no" name="q21" value="No">
+													<label class="answer-label" for="q21_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">22. Have you ever been to a psychiatric or mental health clinic or gone to any doctor, social worker, or
+													clergy for help with any emotional problem where drinking or drug use was part of the problem</span>
+												<div class="answer-container">
+													<input type="radio" id="q22_yes" name="q22" value="Yes">
+													<label class="answer-label" for="q22_yes">Yes</label>
+													<input type="radio" id="q22_no" name="q22" value="No">
+													<label class="answer-label" for="q22_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">23. Have you ever been cited, arrested for drunk driving, driving while intoxicated, or driving under the
+													influence (DUI) of alcoholic beverages or any other drug? </span>
+												<div class="answer-container">
+													<input type="radio" id="q23_yes" name="q23" value="Yes">
+													<label class="answer-label" for="q23_yes">Yes</label>
+													<input type="radio" id="q23_no" name="q23" value="No">
+													<label class="answer-label" for="q23_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">24. Other than DUI, have you ever been cited, arrested, or taken into custody, for possession or use of
+													alcohol, medication, other drugs or paraphernalia?</span>
+												<div class="answer-container">
+													<input type="radio" id="q24_yes" name="q24" value="Yes">
+													<label class="answer-label" for="q24_yes">Yes</label>
+													<input type="radio" id="q24_no" name="q24" value="No">
+													<label class="answer-label" for="q24_no">No</label>
+												</div>
+											</div>
+										</div>
+
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>ADHS</h2>
+										</div>
+
+										<div class="form-group" style="margin-top: 10px;">
+											<h3>Part A</h3>
+											<div class="question-container">
+												<span class="question-label">1. Have you had 3 or more alcohol/drug related arrests/citations?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q1_yes" name="ADHS_q1" value="Yes">
+													<label class="answer-label" for="ADHS_q1_yes">Yes</label>
+													<input type="radio" id="ADHS_q1_no" name="ADHS_q1" value="No">
+													<label class="answer-label" for="ADHS_q1_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">2. Was your blood alcohol level .15 or above?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q2_yes" name="ADHS_q2" value="Yes">
+													<label class="answer-label" for="ADHS_q2_yes">Yes</label>
+													<input type="radio" id="ADHS_q2_no" name="ADHS_q2" value="No">
+													<label class="answer-label" for="ADHS_q2_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">3. Do you habitually abuse or have a problem controlling alcohol or drugs?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q3_yes" name="ADHS_q3" value="Yes">
+													<label class="answer-label" for="ADHS_q3_yes">Yes</label>
+													<input type="radio" id="ADHS_q3_no" name="ADHS_q3" value="No">
+													<label class="answer-label" for="ADHS_q3_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">4. Do you feel you have a problem with alcohol/drugs?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q4_yes" name="ADHS_q4" value="Yes">
+													<label class="answer-label" for="ADHS_q4_yes">Yes</label>
+													<input type="radio" id="ADHS_q4_no" name="ADHS_q4" value="No">
+													<label class="answer-label" for="ADHS_q4_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">5. Have you been diagnosed with substance abuse or organic brain disease
+													due to substance abuse?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q5_yes" name="ADHS_q5" value="Yes">
+													<label class="answer-label" for="ADHS_q5_yes">Yes</label>
+													<input type="radio" id="ADHS_q5_no" name="ADHS_q5" value="No">
+													<label class="answer-label" for="ADHS_q5_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">6. Have you experienced any of these withdrawal symptoms:</span>
+												<h4></h4>
+												<span class="question-label">a. Hallucinogens </span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q6a_yes" name="ADHS_q6" value="Yes">
+													<label class="answer-label" for="ADHS_q6a_yes">Yes</label>
+													<input type="radio" id="ADHS_q6a_no" name="ADHS_q6" value="No">
+													<label class="answer-label" for="ADHS_q6a_no">No</label>
+												</div>
+												<span class="question-label">b. Convulsive Seizures</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q6b_yes" name="ADHS_q7" value="Yes">
+													<label class="answer-label" for="ADHS_q6b_yes">Yes</label>
+													<input type="radio" id="ADHS_q6b_no" name="ADHS_q7" value="No">
+													<label class="answer-label" for="ADHS_q6b_no">No</label>
+												</div>
+												<span class="question-label">c. Delirium tremens </span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q6c_yes" name="ADHS_q8" value="Yes">
+													<label class="answer-label" for="ADHS_q6c_yes">Yes</label>
+													<input type="radio" id="ADHS_q6c_no" name="ADHS_q8" value="No">
+													<label class="answer-label" for="ADHS_q6c_no">No</label>
+												</div>
+											</div>
+											
+											<div class="question-container">
+												<span class="question-label">7. Have been medically diagnosed as having any of these complications?</span>
+												<h4></h4>
+												<span class="question-label">a. Alcohol liver disease </span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q7a_yes" name="ADHS_q9" value="Yes">
+													<label class="answer-label" for="ADHS_q7a_yes">Yes</label>
+													<input type="radio" id="ADHS_q7a_no" name="ADHS_q9" value="No">
+													<label class="answer-label" for="ADHS_q7a_no">No</label>
+												</div>
+												<span class="question-label">b. Alcoholic pancreatitis</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q7b_yes" name="ADHS_q10" value="Yes">
+													<label class="answer-label" for="ADHS_7b_yes">Yes</label>
+													<input type="radio" id="ADHS_q7b_no" name="ADHS_q10" value="No">
+													<label class="answer-label" for="ADHS_q7b_no">No</label>
+												</div>
+												<span class="question-label">c. Alcoholic cardiomyopathy </span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q7c_yes" name="ADHS_q11" value="Yes">
+													<label class="answer-label" for="ADHS_q7c_yes">Yes</label>
+													<input type="radio" id="ADHS_q7c_no" name="ADHS_q11" value="No">
+													<label class="answer-label" for="ADHS_q7c_no">No</label>
+												</div>
+											</div>
+
+											<h3>Part B</h3>
+											<div class="question-container">
+												<span class="question-label">1. Have you had two alcohol/drug related arrests/citations?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q8_yes" name="ADHS_q12" value="Yes">
+													<label class="answer-label" for="ADHS_q8_yes">Yes</label>
+													<input type="radio" id="ADHS_q8_no" name="ADHS_q12" value="No">
+													<label class="answer-label" for="ADHS_q8_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">2. Have you ever lost time from work or school due to alcohol or drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q9_yes" name="ADHS_q13" value="Yes">
+													<label class="answer-label" for="ADHS_q9_yes">Yes</label>
+													<input type="radio" id="ADHS_q9_no" name="ADHS_q13" value="No">
+													<label class="answer-label" for="ADHS_q9_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">3. Have you had any problems with family, friends or peers due to your 
+													alcohol/drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q10_yes" name="ADHS_q14" value="Yes">
+													<label class="answer-label" for="ADHS_q10_yes">Yes</label>
+													<input type="radio" id="ADHS_q10_no" name="ADHS_q14" value="No">
+													<label class="answer-label" for="ADHS_q10_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">4. Have you had 3 or more alcohol/drug related arrests/citations?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q11_yes" name="ADHS_q15" value="Yes">
+													<label class="answer-label" for="ADHS_q11_yes">Yes</label>
+													<input type="radio" id="ADHS_q11_no" name="ADHS_q15" value="No">
+													<label class="answer-label" for="ADHS_q11_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">5. Have you ever gone to a DUI class, Alcohol/Drug class, medical facility, 6. ___ ___
+													or treatment center because of your alcohol/drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q12_yes" name="ADHS_q16" value="Yes">
+													<label class="answer-label" for="ADHS_q12_yes">Yes</label>
+													<input type="radio" id="ADHS_q12_no" name="ADHS_q16" value="No">
+													<label class="answer-label" for="ADHS_q12_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">6. Have you ever had any memory loss after alcohol/drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q13_yes" name="ADHS_q17" value="Yes">
+													<label class="answer-label" for="ADHS_q13_yes">Yes</label>
+													<input type="radio" id="ADHS_q13_no" name="ADHS_q17" value="No">
+													<label class="answer-label" for="ADHS_q13_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">7. Have you ever passed out (become unconscious) after drinking/drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q14_yes" name="ADHS_q18" value="Yes">
+													<label class="answer-label" for="ADHS_q14_yes">Yes</label>
+													<input type="radio" id="ADHS_q14_no" name="ADHS_q18" value="No">
+													<label class="answer-label" for="ADHS_q14_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">8. Have you experienced any of these after alcohol/drug use? </span>
+												<h4></h4>
+												<span class="question-label">a. Shakes or malaise relived by drinking/using </span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q8a_yes" name="ADHS_q19" value="Yes">
+													<label class="answer-label" for="ADHS_q8a_yes">Yes</label>
+													<input type="radio" id="ADHS_q8a_no" name="ADHS_q19" value="No">
+													<label class="answer-label" for="ADHS_q8a_no">No</label>
+												</div>
+												<span class="question-label">b. Irritability</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q8b_yes" name="ADHS_q20" value="Yes">
+													<label class="answer-label" for="ADHS_q8b_yes">Yes</label>
+													<input type="radio" id="ADHS_q8b_no" name="ADHS_q20" value="No">
+													<label class="answer-label" for="ADHS_q8b_no">No</label>
+												</div>
+												<span class="question-label">c. Nausea </span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q8c_yes" name="ADHS_q21" value="Yes">
+													<label class="answer-label" for="ADHS_q8c_yes">Yes</label>
+													<input type="radio" id="ADHS_q8c_no" name="ADHS_q21" value="No">
+													<label class="answer-label" for="ADHS_q8c_no">No</label>
+												</div>
+												<span class="question-label">d. Anxiety </span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q8d_yes" name="ADHS_q22" value="Yes">
+													<label class="answer-label" for="ADHS_q8d_yes">Yes</label>
+													<input type="radio" id="ADHS_q8d_no" name="ADHS_q22" value="No">
+													<label class="answer-label" for="ADHS_q8d_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">9. Have you used alcohol/drugs to cope with or escape from problems/stress?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q19_yes" name="ADHS_q23" value="Yes">
+													<label class="answer-label" for="ADHS_q19_yes">Yes</label>
+													<input type="radio" id="ADHS_q19_no" name="ADHS_q23" value="No">
+													<label class="answer-label" for="ADHS_q19_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">10. Have you experienced an increase of use, a change of tolerance (e.g. BAC ≥ .18)
+													or change in pattern of use?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q17_yes" name="ADHS_q24" value="Yes">
+													<label class="answer-label" for="ADHS_q17_yes">Yes</label>
+													<input type="radio" id="ADHS_q17_no" name="ADHS_q24" value="No">
+													<label class="answer-label" for="ADHS_q17_no">No</label>
+												</div>
+											</div>
+											<div class="question-container">
+												<span class="question-label">11. Have you ever had dramatic personality changes after alcohol/drug use?</span>
+												<div class="answer-container">
+													<input type="radio" id="ADHS_q18_yes" name="ADHS_q25" value="Yes">
+													<label class="answer-label" for="ADHS_q18_yes">Yes</label>
+													<input type="radio" id="ADHS_q18_no" name="ADHS_q25" value="No">
+													<label class="answer-label" for="ADHS_q18_no">No</label>
+												</div>
+											</div>
+											
+
+										</div>
+
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>A.B.I</h2>
+										</div>
+
+										<div class="form-group" style="margin-top: 10px;">
+											<div class="form-group">
+												<label for="question1">1. Have you attended class or a program for anger or destructive behavior?</label>
+												<input type="text" id="abi_q1t" name="attended_class" placeholder="When? Why?" style="margin-bottom: 10px;">
+												<input type="radio" id="abi_q1_yes" name="abi_q1" value="Yes">
+												<label class="answer-label" for="abi_q1_yes">Yes</label>
+												<input type="radio" id="abi_q1_no" name="abi_q1" value="No">
+												<label class="answer-label" for="abi_q1_no">No</label>
+											</div>
+
+											<div class="form-group">
+												<label for="question2">2. Have you been cited, arrested or charged for threatening someone, property damage, assault or other aggressive acts?</label>
+												<input type="radio" id="abi_q2_yes" name="abi_q2" value="Yes">
+												<label class="answer-label" for="abi_q2_yes">Yes</label>
+												<input type="radio" id="abi_q2_no" name="abi_q2" value="No">
+												<label class="answer-label" for="abi_q2_no">No</label>
+											</div>
+											
+											<!-- Question 3 -->
+											<div class="form-group">
+												<label for="question3">3. Do your feelings build up so that you feel like exploding?</label>
+												<input type="radio" id="abi_q3_yes" name="abi_q3" value="Yes">
+												<label class="answer-label" for="abi_q3_yes">Yes</label>
+												<input type="radio" id="abi_q3_no" name="abi_q3" value="No">
+												<label class="answer-label" for="abi_q3_no">No</label>
+											</div>
+											
+											<!-- Question 4 -->
+											<div class="form-group">
+												<label for="question4">4. Do you get mad easily or have an explosive temper?</label>
+												<input type="radio" id="abi_q4_yes" name="abi_q4" value="Yes">
+												<label class="answer-label" for="abi_q4_yes">Yes</label>
+												<input type="radio" id="abi_q4_no" name="abi_q4" value="No">
+												<label class="answer-label" for="abi_q4_no">No</label>
+											</div>
+											
+											<!-- Question 5 -->
+											<div class="form-group">
+												<label for="question5">5. Do people tell you to calm down?</label>
+												<input type="radio" id="abi_q5_yes" name="abi_q5" value="Yes">
+												<label class="answer-label" for="abi_q5_yes">Yes</label>
+												<input type="radio" id="abi_q5_no" name="abi_q5" value="No">
+												<label class="answer-label" for="abi_q5_no">No</label>
+											</div>
+											
+											<!-- Question 6 -->
+											<div class="form-group">
+												<label for="question6">6. Do you sometimes feel so angry you could lose control?</label>
+												<input type="radio" id="abi_q6_yes" name="abi_q6" value="Yes">
+												<label class="answer-label" for="abi_q6_yes">Yes</label>
+												<input type="radio" id="abi_q6_no" name="abi_q6" value="No">
+												<label class="answer-label" for="abi_q6_no">No</label>
+											</div>
+											
+											<!-- Question 7 -->
+											<div class="form-group">
+												<label for="question7">7. Do you hit, kick, punch, destroy or throw things when you are very upset?</label>
+												<input type="radio" id="abi_q7_yes" name="abi_q7" value="Yes">
+												<label class="answer-label" for="abi_q7_yes">Yes</label>
+												<input type="radio" id="abi_q7_no" name="abi_q7" value="No">
+												<label class="answer-label" for="abi_q7_no">No</label>
+											</div>
+											
+											<!-- Question 8 -->
+											<div class="form-group">
+												<label for="question8">8. Has your anger ever caused problems for your family, friends and/or partner?</label>
+												<input type="radio" id="abi_q8_yes" name="abi_q8" value="Yes">
+												<label class="answer-label" for="abi_q8_yes">Yes</label>
+												<input type="radio" id="abi_q8_no" name="abi_q8" value="No">
+												<label class="answer-label" for="abi_q8_no">No</label>
+											</div>
+											
+											<!-- Question 9 -->
+											<div class="form-group">
+												<label for="question9">9. Do you get into arguments or fights even when you dont want to?</label>
+												<input type="radio" id="abi_q9_yes" name="abi_q9" value="Yes">
+												<label class="answer-label" for="abi_q9_yes">Yes</label>
+												<input type="radio" id="abi_q9_no" name="abi_q9" value="No">
+												<label class="answer-label" for="abi_q9_no">No</label>
+											</div>
+											<div class="form-group">
+												<label for="question10">10. Have you lost time at work or school or lost friends because of your temper?</label>
+												<input type="radio" id="abi_q10_yes" name="abi_q10" value="Yes">
+												<label class="answer-label" for="abi_q10_yes">Yes</label>
+												<input type="radio" id="abi_q10_no" name="abi_q10" value="No">
+												<label class="answer-label" for="abi_q10_no">No</label>
+											</div>
+										</div>
+
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>T.V.I.</h2>
+										</div>
+										
+										<div class="form-group" style="margin-top: 10px;">
+										
+											<div class="form-group">
+												<label for="tvi_q1">1. Have you experienced or witnessed a life threatening or terrifying event?</label>
+												<input type="text" id="tvi_q1_explain" name="tvi_q1" placeholder="Explain" style="margin-bottom: 10px;">
+												<input type="radio" id="tvi_q1_yes" name="tvi_q2" value="Yes">
+												<label class="answer-label" for="tvi_q1_yes">Yes</label>
+												<input type="radio" id="tvi_q1_no" name="tvi_q2" value="No">
+												<label class="answer-label" for="tvi_q1_no">No</label>
+											</div>
+										
+											<div class="form-group">
+												<label for="tvi_q2">2. Have you witnessed or experienced physical, emotional or sexual abuse?</label>
+												<input type="text" id="tvi_q2_who" name="tvi_q3" placeholder="Who?" style="margin-bottom: 10px;">
+												<input type="text" id="tvi_q2_when" name="tvi_q4" placeholder="When?" style="margin-bottom: 10px;">
+												<input type="text" id="tvi_q2_times" name="tvi_q5" placeholder="How many times?" style="margin-bottom: 10px;">
+												<input type="radio" id="tvi_q2_yes" name="tvi_q6" value="Yes">
+												<label class="answer-label" for="tvi_q2_yes">Yes</label>
+												<input type="radio" id="tvi_q2_no" name="tvi_q6" value="No">
+												<label class="answer-label" for="tvi_q2_no">No</label>
+											</div>
+										
+											<div class="form-group">
+												<label for="tvi_q3">3. Have you been, or witnessed kidnapping, beating, shooting, stabbing, threatening or any other form of victimization?</label>
+												<input type="text" id="tvi_q3_who" name="tvi_q7" placeholder="Who?" style="margin-bottom: 10px;">
+												<input type="text" id="tvi_q3_when" name="tvi_q8" placeholder="When?" style="margin-bottom: 10px;">
+												<input type="text" id="tvi_q3_times" name="tvi_q9" placeholder="How many times?" style="margin-bottom: 10px;">
+												<input type="radio" id="tvi_q3_yes" name="tvi_q10" value="Yes">
+												<label class="answer-label" for="tvi_q3_yes">Yes</label>
+												<input type="radio" id="tvi_q3_no" name="tvi_q10" value="No">
+												<label class="answer-label" for="tvi_q3_no">No</label>
+											</div>
+										
+											<div class="form-group">
+												<label for="tvi_q4">4. Have you witnessed or experienced months of ongoing intense emotional distress?</label>
+												<input type="text" id="tvi_q4_explain" name="tvi_q11" placeholder="Explain" style="margin-bottom: 10px;">
+												<input type="radio" id="tvi_q4_yes" name="tvi_q12" value="Yes">
+												<label class="answer-label" for="tvi_q4_yes">Yes</label>
+												<input type="radio" id="tvi_q4_no" name="tvi_q12" value="No">
+												<label class="answer-label" for="tvi_q4_no">No</label>
+											</div>
+										
+											<div class="form-group">
+												<label for="tvi_q5">5. Have you received medical, psychiatric, psychological or counseling treatment for any items 1 through 4?</label>
+												<input type="text" id="tvi_q5_explain" name="tvi_q14" placeholder="If yes, explain" style="margin-bottom: 10px;">
+												<input type="text" id="tvi_q5_treatment" name="tvi_q15" placeholder="What treatment did you receive?" style="margin-bottom: 10px;">
+												<input type="text" id="tvi_q5_satisfaction" name="tvi_q16" placeholder="Are you satisfied with the treatment result? Explain" style="margin-bottom: 10px;">
+											</div>
+										</div>
+
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>S.I.</h2>
+										</div>
+										
+										<div class="form-group" style="margin-top: 10px;">
+											
+											<!-- Question 1 -->
+											<div class="form-group">
+												<label for="si_q1">1. Has life become very painful or unbearable?</label>
+												<input type="radio" id="si_q1_yes" name="si_q1" value="Yes">
+												<label class="answer-label" for="si_q1_yes">Yes</label>
+												<input type="radio" id="si_q1_no" name="si_q1" value="No">
+												<label class="answer-label" for="si_q1_no">No</label>
+											</div>
+											
+											<!-- Question 2 -->
+											<div class="form-group">
+												<label for="si_q2">2. Do you feel overwhelming pain, distress or depression?</label>
+												<input type="radio" id="si_q2_yes" name="si_q2" value="Yes">
+												<label class="answer-label" for="si_q2_yes">Yes</label>
+												<input type="radio" id="si_q2_no" name="si_q2" value="No">
+												<label class="answer-label" for="si_q2_no">No</label>
+											</div>
+											
+											<!-- Question 3 -->
+											<div class="form-group">
+												<label for="si_q3">3. Do you feel that life is not worth living?</label>
+												<input type="radio" id="si_q3_yes" name="si_q3" value="Yes">
+												<label class="answer-label" for="si_q3_yes">Yes</label>
+												<input type="radio" id="si_q3_no" name="si_q3" value="No">
+												<label class="answer-label" for="si_q3_no">No</label>
+											</div>
+											
+											<!-- Question 4 -->
+											<div class="form-group">
+												<label for="si_q4">4. Have you thought of hurting yourself or killing yourself?</label>
+												<input type="text" id="si_q4_times" name="si_q4" placeholder="How many times?" style="margin-bottom: 10px;">
+												<input type="text" id="si_q4_when" name="si_q5" placeholder="When?" style="margin-bottom: 10px;">
+												<input type="radio" id="si_q4_yes" name="si_q6" value="Yes">
+												<label class="answer-label" for="si_q4_yes">Yes</label>
+												<input type="radio" id="si_q4_no" name="si_q6" value="No">
+												<label class="answer-label" for="si_q4_no">No</label>
+											</div>
+											
+											<!-- Question 5 -->
+											<div class="form-group">
+												<label for="si_q5">5. Have you ever made any plans to hurt or kill yourself?</label>
+												<input type="text" id="si_q5_times" name="si_q7" placeholder="How many times?" style="margin-bottom: 10px;">
+												<input type="text" id="si_q5_when" name="si_q8" placeholder="When?" style="margin-bottom: 10px;">
+												<input type="radio" id="si_q5_yes" name="si_q9" value="Yes">
+												<label class="answer-label" for="si_q5_yes">Yes</label>
+												<input type="radio" id="si_q5_no" name="si_q9" value="No">
+												<label class="answer-label" for="si_q5_no">No</label>
+											</div>
+											
+											<!-- Question 6 -->
+											<div class="form-group">
+												<label for="si_q6">6. Have you ever attempted to hurt or kill yourself?</label>
+												<input type="text" id="si_q6_when" name="si_q10" placeholder="When?" style="margin-bottom: 10px;">
+												<input type="text" id="si_q6_how" name="si_q11" placeholder="How?" style="margin-bottom: 10px;">
+												<input type="radio" id="si_q6_yes" name="si_q12" value="Yes">
+												<label class="answer-label" for="si_q6_yes">Yes</label>
+												<input type="radio" id="si_q6_no" name="si_q12" value="No">
+												<label class="answer-label" for="si_q6_no">No</label>
+											</div>
+											
+											<!-- Question 7 -->
+											<div class="form-group">
+												<label for="si_q7">7. Do you want to hurt or kill yourself now?</label>
+												<input type="radio" id="si_q7_yes" name="si_q13" value="Yes">
+												<label class="answer-label" for="si_q7_yes">Yes</label>
+												<input type="radio" id="si_q7_no" name="si_q13" value="No">
+												<label class="answer-label" for="si_q7_no">No</label>
+											</div>
+											
+											<!-- Question 8 -->
+											<div class="form-group">
+												<label for="si_q8">8. Do you have a plan about how to hurt or kill yourself?</label>
+												<input type="radio" id="si_q8_yes" name="si_q14" value="Yes">
+												<label class="answer-label" for="si_q8_yes">Yes</label>
+												<input type="radio" id="si_q8_no" name="si_q14" value="No">
+												<label class="answer-label" for="si_q8_no">No</label>
+											</div>
+
+											<!-- Additional Explanation -->
+											<div class="form-group">
+												<label for="si_additional_explain">If you answered "yes" to any question above, please describe how you coped or will cope with the situation:</label>
+												<textarea id="si_additional_explain" name="si_q15" rows="4" style="margin-bottom: 10px;"></textarea>
+											</div>
+										</div>
+
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>D.I.</h2>
+										</div>
+										
+										<div class="form-group" style="margin-top: 10px;">
+											<!-- Each question has a similar structure -->
+											<!-- Question 1 -->
+											<div class="form-group">
+												<label for="di_q1">1. Do you feel undeserving or worthless?</label>
+												<input type="radio" id="di_q1_yes" name="di_q1" value="Yes">
+												<label class="answer-label" for="di_q1_yes">Yes</label>
+												<input type="radio" id="di_q1_no" name="di_q1" value="No">
+												<label class="answer-label" for="di_q1_no">No</label>
+											</div>
+											
+											<!-- Question 2 -->
+											<div class="form-group">
+												<label for="di_q2_yes">2. Do you feel very lonely, abandoned, and/or isolated?</label>
+												<input type="radio" id="di_q2_yes" name="di_q2" value="Yes">
+												<label class="answer-label" for="di_q2_yes">Yes</label>
+												<input type="radio" id="di_q2_no" name="di_q2" value="No">
+												<label class="answer-label" for="di_q2_no">No</label>
+											</div>
+
+											<!-- Question 3 -->
+											<div class="form-group">
+												<label for="di_q3_yes">3. Do you often feel sad, depressed or down in the dumps?</label>
+												<input type="radio" id="di_q3_yes" name="di_q3" value="Yes">
+												<label class="answer-label" for="di_q3_yes">Yes</label>
+												<input type="radio" id="di_q3_no" name="di_q3" value="No">
+												<label class="answer-label" for="di_q3_no">No</label>
+											</div>
+
+											<!-- Question 4 -->
+											<div class="form-group">
+												<label for="di_q4_yes">4. Do you feel hopeless about your future?</label>
+												<input type="radio" id="di_q4_yes" name="di_q4" value="Yes">
+												<label class="answer-label" for="di_q4_yes">Yes</label>
+												<input type="radio" id="di_q4_no" name="di_q4" value="No">
+												<label class="answer-label" for="di_q4_no">No</label>
+											</div>
+
+											<!-- Question 5 -->
+											<div class="form-group">
+												<label for="di_q5_yes">5. Has your sleep been restless lately?</label>
+												<input type="radio" id="di_q5_yes" name="di_q5" value="Yes">
+												<label class="answer-label" for="di_q5_yes">Yes</label>
+												<input type="radio" id="di_q5_no" name="di_q5" value="No">
+												<label class="answer-label" for="di_q5_no">No</label>
+											</div>
+
+											<!-- Question 6 -->
+											<div class="form-group">
+												<label for="di_q6_yes">6. Have you enjoyed yourself lately?</label>
+												<input type="radio" id="di_q6_yes" name="di_q6" value="Yes">
+												<label class="answer-label" for="di_q6_yes">Yes</label>
+												<input type="radio" id="di_q6_no" name="di_q6" value="No">
+												<label class="answer-label" for="di_q6_no">No</label>
+											</div>
+
+											<!-- Question 7 -->
+											<div class="form-group">
+												<label for="di_q7_yes">7. Do you feel your life is a failure lately?</label>
+												<input type="radio" id="di_q7_yes" name="di_q7" value="Yes">
+												<label class="answer-label" for="di_q7_yes">Yes</label>
+												<input type="radio" id="di_q7_no" name="di_q7" value="No">
+												<label class="answer-label" for="di_q7_no">No</label>
+											</div>
+
+											<!-- Question 8 -->
+											<div class="form-group">
+												<label for="di_q8_yes">8. Do you feel you just can't get going?</label>
+												<input type="radio" id="di_q8_yes" name="di_q8" value="Yes">
+												<label class="answer-label" for="di_q8_yes">Yes</label>
+												<input type="radio" id="di_q8_no" name="di_q8" value="No">
+												<label class="answer-label" for="di_q8_no">No</label>
+											</div>
+
+											<!-- Question 9 -->
+											<div class="form-group">
+												<label for="di_q9_yes">9. Are you often unhappy?</label>
+												<input type="radio" id="di_q9_yes" name="di_q9" value="Yes">
+												<label class="answer-label" for="di_q9_yes">Yes</label>
+												<input type="radio" id="di_q9_no" name="di_q9" value="No">
+												<label class="answer-label" for="di_q9_no">No</label>
+											</div>
+
+										
+											<!-- Question 10 -->
+											<div class="form-group">
+												<label for="di_q10">10. Are you very angry with yourself?</label>
+												<input type="radio" id="di_q10_yes" name="di_q10" value="Yes">
+												<label class="answer-label" for="di_q10_yes">Yes</label>
+												<input type="radio" id="di_q10_no" name="di_q10" value="No">
+												<label class="answer-label" for="di_q10_no">No</label>
+											</div>
+										
+											<!-- Additional explanation input -->
+											<div class="form-group">
+												<label for="di_explanation">If you answered "yes" to any question above, except #6, please describe how you coped or will cope with the situation:</label>
+												<textarea id="di_explanation" name="di_q11" rows="4" style="margin-bottom: 10px;"></textarea>
+											</div>
+										</div>
+
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>V.I.</h2>
+										</div>
+										
+										<div class="form-group" style="margin-top: 10px;">
+											<p>The conflict that brought me to this screening involved which of the following, to the other person:</p>
+										
+											<!-- Each option has a similar structure -->
+											<div class="form-group">
+												<label for="vi_q1_no_injury">1. No Injury</label>
+												<input type="radio" id="vi_q1_no_injury_yes" name="vi_q1" value="No Injury">
+												<label for="vi_q1_no_injury_yes">Yes</label>
+												<input type="radio" id="vi_q1_no_injury_no" name="vi_q1" value="No Injury">
+												<label for="vi_q1_no_injury_no">No</label>
+											</div>
+										
+											<!-- Option 2 -->
+											<div class="form-group">
+												<label for="vi_q2_minor_injury">2. A minor injury with complete recovery in a few days</label>
+												<input type="radio" id="vi_q2_minor_injury_yes" name="vi_q2" value="Minor Injury">
+												<label class="answer-label" for="vi_q2_minor_injury_yes">Yes</label>
+												<input type="radio" id="vi_q2_minor_injury_no" name="vi_q2" value="Minor Injury">
+												<label class="answer-label" for="vi_q2_minor_injury_no">No</label>
+											</div>
+										
+											<!-- Option 3 -->
+											<div class="form-group">
+												<label for="vi_q3_injury_recovery_weeks">3. Injury with complete recovery in a few weeks</label>
+												<input type="radio" id="vi_q3_injury_recovery_weeks_yes" name="vi_q3" value="Injury Recovery Weeks">
+												<label class="answer-label" for="vi_q3_injury_recovery_weeks_yes">Yes</label>
+												<input type="radio" id="vi_q3_injury_recovery_weeks_no" name="vi_q3" value="Injury Recovery Weeks">
+												<label class="answer-label" for="vi_q3_injury_recovery_weeks_no">No</label>
+											</div>
+										
+											<!-- Option 4 -->
+											<div class="form-group">
+												<label for="vi_q4_injury_recovery_months">4. Injury with complete recovery in a few months</label>
+												<input type="radio" id="vi_q4_injury_recovery_months_yes" name="vi_q4" value="Injury Recovery Months">
+												<label class="answer-label" for="vi_q4_injury_recovery_months_yes">Yes</label>
+												<input type="radio" id="vi_q4_injury_recovery_months_no" name="vi_q4" value="Injury Recovery Months">
+												<label class="answer-label" for="vi_q4_injury_recovery_months_no">No</label>
+											</div>
+										
+											<!-- Option 5 -->
+											<div class="form-group">
+												<label for="vi_q5_disabling_injury">5. Disabling Injury</label>
+												<input type="radio" id="vi_q5_disabling_injury_yes" name="vi_q5" value="Disabling Injury">
+												<label class="answer-label" for="vi_q5_disabling_injury_yes">Yes</label>
+												<input type="radio" id="vi_q5_disabling_injury_no" name="vi_q5" value="Disabling Injury">
+												<label class="answer-label" for="vi_q5_disabling_injury_no">No</label>
+											</div>
+										
+											<div class="form-group">
+												<label for="vi_q6_death">6. Death</label>
+												<input type="radio" id="vi_q6_death_yes" name="vi_q6" value="Death">
+												<label class="answer-label" for="vi_q6_death_yes">Yes</label>
+												<input type="radio" id="vi_q6_death_no" name="vi_q6" value="Death">
+												<label class="answer-label" for="vi_q6_death_no">No</label>
+											</div>
+										</div>
+										
+										
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>L.O.F.</h2>
+										</div>
+										
+										<div class="form-group" style="margin-top: 10px;">
+											<p>The conflict that brought me to this screening involved the following:</p>
+											
+											<p>A. My actions during the conflict</p>
+											
+											 <!-- Question A1 -->
+											<div class="form-group">
+												<label for="lof_a_q1">1. Arguing (without threats)</label>
+												<input type="radio" id="lof_a_q1_yes" name="lof_q1" value="Yes">
+												<label class="answer-label" for="lof_a_q1_yes">Yes</label>
+												<input type="radio" id="lof_a_q1_no" name="lof_q1" value="No">
+												<label class="answer-label" for="lof_a_q1_no">No</label>
+											</div>
+											
+											<!-- Question A2 -->
+											<div class="form-group">
+												<label for="lof_a_q2">2. Property damage or yelling (without threats)</label>
+												<input type="radio" id="lof_a_q2_yes" name="lof_q2" value="Yes">
+												<label class="answer-label" for="lof_a_q2_yes">Yes</label>
+												<input type="radio" id="lof_a_q2_no" name="lof_q2" value="No">
+												<label class="answer-label" for="lof_a_q2_no">No</label>
+											</div>
+
+											<!-- Question A3 -->
+											<div class="form-group">
+												<label for="lof_a_q3">3. Physical contact or threat of contact (push, hold, slaps, restrain, block movement)</label>
+												<input type="radio" id="lof_a_q3_yes" name="lof_q3" value="Yes">
+												<label class="answer-label" for="lof_a_q3_yes">Yes</label>
+												<input type="radio" id="lof_a_q3_no" name="lof_q3" value="No">
+												<label class="answer-label" for="lof_a_q3_no">No</label>
+											</div>
+
+											<!-- Question A4 -->
+											<div class="form-group">
+												<label for="lof_a_q4">4. Physical force or threat of force (hit, punch, kick, bite, etc)</label>
+												<input type="radio" id="lof_a_q4_yes" name="lof_q4" value="Yes">
+												<label class="answer-label" for="lof_a_q4_yes">Yes</label>
+												<input type="radio" id="lof_a_q4_no" name="lof_q4" value="No">
+												<label class="answer-label" for="lof_a_q4_no">No</label>
+											</div>
+
+											<!-- Question A5 -->
+											<div class="form-group">
+												<label for="lof_a_q5">5. Weapon display or threat of weapon use (club, knife, gun, etc)</label>
+												<input type="radio" id="lof_a_q5_yes" name="lof_q5" value="Yes">
+												<label class="answer-label" for="lof_a_q5_yes">Yes</label>
+												<input type="radio" id="lof_a_q5_no" name="lof_q5" value="No">
+												<label class="answer-label" for="lof_a_q5_no">No</label>
+											</div>
+
+											<!-- Question A6 -->
+											<div class="form-group">
+												<label for="lof_a_q6">6. Weapon use, choking or forced sex</label>
+												<input type="radio" id="lof_a_q6_yes" name="lof_q6" value="Yes">
+												<label class="answer-label" for="lof_a_q6_yes">Yes</label>
+												<input type="radio" id="lof_a_q6_no" name="lof_q6" value="No">
+												<label class="answer-label" for="lof_a_q6_no" style="margin-bottom: 20px;">No</label>
+											</div>
+											
+											
+											<p>B. The other persons actions during the conflict</p>
+											
+											<!-- Section B: The other person's actions during the conflict -->
+											<!-- Question B1 -->
+											<div class="form-group">
+												<label for="lof_b_q1">1. Arguing (without threats)</label>
+												<input type="radio" id="lof_b_q1_yes" name="lof_q7" value="Yes">
+												<label class="answer-label" for="lof_b_q1_yes">Yes</label>
+												<input type="radio" id="lof_b_q1_no" name="lof_q7" value="No">
+												<label class="answer-label" for="lof_b_q1_no">No</label>
+											</div>
+											
+											<!-- Question B2 -->
+											<div class="form-group">
+												<label for="lof_b_q2">2. Property damage or yelling (without threats)</label>
+												<input type="radio" id="lof_b_q2_yes" name="lof_q8" value="Yes">
+												<label class="answer-label" for="lof_b_q2_yes">Yes</label>
+												<input type="radio" id="lof_b_q2_no" name="lof_q8" value="No">
+												<label class="answer-label" for="lof_b_q2_no">No</label>
+											</div>
+
+											<!-- Question B3 -->
+											<div class="form-group">
+												<label for="lof_b_q3">3. Physical contact or threat of contact (push, hold, slaps, restrain, block movement)</label>
+												<input type="radio" id="lof_b_q3_yes" name="lof_q9" value="Yes">
+												<label class="answer-label" for="lof_b_q3_yes">Yes</label>
+												<input type="radio" id="lof_b_q3_no" name="lof_q9" value="No">
+												<label class="answer-label" for="lof_b_q3_no">No</label>
+											</div>
+
+											<!-- Question B4 -->
+											<div class="form-group">
+												<label for="lof_b_q4">4. Physical force or threat of force (hit, punch, kick, bite, etc)</label>
+												<input type="radio" id="lof_b_q4_yes" name="lof_q10" value="Yes">
+												<label class="answer-label" for="lof_b_q4_yes">Yes</label>
+												<input type="radio" id="lof_b_q4_no" name="lof_q10" value="No">
+												<label class="answer-label" for="lof_b_q4_no">No</label>
+											</div>
+
+											<!-- Question B5 -->
+											<div class="form-group">
+												<label for="lof_b_q5">5. Weapon display or threat of weapon use (club, knife, gun, etc)</label>
+												<input type="radio" id="lof_b_q5_yes" name="lof_q11" value="Yes">
+												<label class="answer-label" for="lof_b_q5_yes">Yes</label>
+												<input type="radio" id="lof_b_q5_no" name="lof_q11" value="No">
+												<label class="answer-label" for="lof_b_q5_no">No</label>
+											</div>
+
+											<!-- Question B6 -->
+											<div class="form-group">
+												<label for="lof_b_q6">6. Weapon use, choking or forced sex</label>
+												<input type="radio" id="lof_b_q6_yes" name="lof_q12" value="Yes">
+												<label class="answer-label" for="lof_b_q6_yes">Yes</label>
+												<input type="radio" id="lof_b_q6_no" name="lof_q12" value="No">
+												<label class="answer-label" for="lof_b_q6_no">No</label>
+											</div>
+										</div>
+										
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>H.I.</h2>
+										</div>
+										
+										<div class="form-group" style="margin-top: 10px;">
+										
+											<!-- Question 1 -->
+											<div class="form-group">
+												<label for="hi_q1">1. Was there a time when you were often in fights?</label>
+												<input type="text" id="hi_q1_when" name="hi_q1" placeholder="When?" style="margin-bottom: 10px;">
+												<input type="text" id="hi_q1_why" name="hi_q2" placeholder="Why?" style="margin-bottom: 10px;">
+												<input type="radio" id="hi_q1_yes" name="hi_q3" value="Yes">
+												<label class="answer-label" for="hi_q1_yes">Yes</label>
+												<input type="radio" id="hi_q1_no" name="hi_q3" value="No">
+												<label class="answer-label" for="hi_q1_no">No</label>
+											</div>
+											
+											<!-- Question 2 -->
+											<div class="form-group">
+												<label for="hi_q2">2. Do you feel you must control others or be in charge?</label>
+												<input type="text" id="hi_q2_when" name="hi_q4" placeholder="When?" style="margin-bottom: 10px;">
+												<input type="text" id="hi_q2_how" name="hi_q5" placeholder="How?" style="margin-bottom: 10px;">
+												<input type="radio" id="hi_q2_yes" name="hi_q6" value="Yes">
+												<label class="answer-label" for="hi_q2_yes">Yes</label>
+												<input type="radio" id="hi_q2_no" name="hi_q6" value="No">
+												<label class="answer-label" for="hi_q2_no">No</label>
+											</div>
+
+											<!-- Question 3 -->
+											<div class="form-group">
+												<label for="hi_q3">3. Do you like to carry a weapon for protection or to feel powerful?</label>
+												<input type="radio" id="hi_q3_yes" name="hi_q7" value="Yes">
+												<label class="answer-label" for="hi_q3_yes">Yes</label>
+												<input type="radio" id="hi_q3_no" name="hi_q7" value="No">
+												<label class="answer-label" for="hi_q3_no">No</label>
+											</div>
+
+											<!-- Question 4 -->
+											<div class="form-group">
+												<label for="hi_q4">4. Do you feel so hurt that you have the right to hurt someone?</label>
+												<input type="text" id="hi_q4_who" name="hi_q8" placeholder="Who?" style="margin-bottom: 10px;">
+												<input type="radio" id="hi_q4_yes" name="hi_q9" value="Yes">
+												<label class="answer-label" for="hi_q4_yes">Yes</label>
+												<input type="radio" id="hi_q4_no" name="hi_q9" value="No">
+												<label class="answer-label" for="hi_q4_no">No</label>
+											</div>
+
+											<!-- Question 5 -->
+											<div class="form-group">
+												<label for="hi_q5">5. Are you going to pursue, follow or stalk someone?</label>
+												<input type="text" id="hi_q5_who" name="hi_q10" placeholder="Who?" style="margin-bottom: 10px;">
+												<input type="radio" id="hi_q5_yes" name="hi_q11" value="Yes">
+												<label class="answer-label" for="hi_q5_yes">Yes</label>
+												<input type="radio" id="hi_q5_no" name="hi_q11" value="No">
+												<label class="answer-label" for="hi_q5_no">No</label>
+											</div>
+
+											<!-- Question 6 -->
+											<div class="form-group">
+												<label for="hi_q6">6. Are you angry enough to hit or harm someone?</label>
+												<input type="text" id="hi_q6_who" name="hi_q12" placeholder="Who?" style="margin-bottom: 10px;">
+												<input type="radio" id="hi_q6_yes" name="hi_q13" value="Yes">
+												<label class="answer-label" for="hi_q6_yes">Yes</label>
+												<input type="radio" id="hi_q6_no" name="hi_q13" value="No">
+												<label class="answer-label" for="hi_q6_no">No</label>
+											</div>
+
+											<!-- Question 7 -->
+											<div class="form-group">
+												<label for="hi_q7">7. Are you seeking revenge with someone?</label>
+												<input type="text" id="hi_q7_who" name="hi_q14" placeholder="Who?" style="margin-bottom: 10px;">
+												<input type="radio" id="hi_q7_yes" name="hi_q15" value="Yes">
+												<label class="answer-label" for="hi_q7_yes">Yes</label>
+												<input type="radio" id="hi_q7_no" name="hi_q15" value="No">
+												<label class="answer-label" for="hi_q7_no">No</label>
+											</div>
+
+											<!-- Question 8 -->
+											<div class="form-group">
+												<label for="hi_q8">8. Are you going to confront someone verbally?</label>
+												<input type="text" id="hi_q8_who" name="hi_q16" placeholder="Who?" style="margin-bottom: 10px;">
+												<input type="radio" id="hi_q8_yes" name="hi_q17" value="Yes">
+												<label class="answer-label" for="hi_q8_yes">Yes</label>
+												<input type="radio" id="hi_q8_no" name="hi_q17" value="No">
+												<label class="answer-label" for="hi_q8_no">No</label>
+											</div>
+
+
+											<!-- Question 9 -->
+											<div class="form-group">
+												<label for="hi_q9">9. Are you going to confront someone with force or a weapon?</label>
+												<input type="text" id="hi_q9_who" name="hi_q18" placeholder="Who?" style="margin-bottom: 10px;">
+												<input type="radio" id="hi_q9_yes" name="hi_q19" value="Yes">
+												<label class="answer-label" for="hi_q9_yes">Yes</label>
+												<input type="radio" id="hi_q9_no" name="hi_q19" value="No">
+												<label class="answer-label" for="hi_q9_no">No</label>
+											</div>
+											
+											<!-- Question 10 -->
+											<div class="form-group">
+												<label for="hi_q10">10. Are you going to harm someone?</label>
+												<input type="text" id="hi_q10_who" name="hi_q20" placeholder="Who?" style="margin-bottom: 10px;">
+												<input type="radio" id="hi_q10_yes" name="hi_q21" value="Yes">
+												<label class="answer-label" for="hi_q10_yes">Yes</label>
+												<input type="radio" id="hi_q10_no" name="hi_q21" value="No">
+												<label class="answer-label" for="hi_q10_no">No</label>
+												<label for="hi_q10_explain">Explain:</label>
+												<input type="text" id="hi_q10_explain" name="hi_q22" placeholder="Explain" style="margin-bottom: 10px;">
+											</div>
+										
+										</div>
+										
+										<div style="text-align: center; margin-top: 50px;">
+											<h2>D.V.P.I.</h2>
+										</div>
+										
+										<div class="form-group" style="margin-top: 10px;">
+											<!-- Question 1 -->
+											<div class="form-group">
+												<label for="dvpi_q1">1. Have you ever been cited, arrested or charged for a domestic violence offense or received an order for protection that restricted your actions?</label>
+												<input type="text" id="dvpi_q1_times" name="dvpi_q1" placeholder="How many times?" style="margin-bottom: 10px;">
+												<input type="radio" id="dvpi_q1_yes" name="dvpi_q2" value="Yes">
+												<label class="answer-label" for="dvpi_q1_yes">Yes</label>
+												<input type="radio" id="dvpi_q1_no" name="dvpi_q2" value="No">
+												<label class="answer-label" for="dvpi_q1_no">No</label>
+											</div>
+											
+											<!-- Question 2 -->
+											<div class="form-group">
+												<label for="dvpi_q2">2. Have you attended or been referred to a domestic violence offender treatment program, including today?</label>
+												<input type="text" id="dvpi_q2_times" name="dvpi_q3" placeholder="How many times?" style="margin-bottom: 10px;">
+												<input type="radio" id="dvpi_q2_yes" name="dvpi_q4" value="Yes">
+												<label class="answer-label" for="dvpi_q2_yes">Yes</label>
+												<input type="radio" id="dvpi_q2_no" name="dvpi_q4" value="No">
+												<label class="answer-label" for="dvpi_q2_no">No</label>
+											</div>
+
+											<!-- Question 3 -->
+											<div class="form-group">
+												<label for="dvpi_q3">3. Have you ever been so angry that you threatened, restrained, hit, shoved or kicked your partner or a family member?</label>
+												<input type="radio" id="dvpi_q3_yes" name="dvpi_q5" value="Yes">
+												<label class="answer-label" for="dvpi_q3_yes">Yes</label>
+												<input type="radio" id="dvpi_q3_no" name="dvpi_q5" value="No">
+												<label class="answer-label" for="dvpi_q3_no">No</label>
+											</div>
+
+											<!-- Question 4 -->
+											<div class="form-group">
+												<label for="dvpi_q4">4. Do your conflicts usually follow a pattern of tension building, followed by a blow up and then a peaceful time?</label>
+												<input type="radio" id="dvpi_q4_yes" name="dvpi_q6" value="Yes">
+												<label class="answer-label" for="dvpi_q4_yes">Yes</label>
+												<input type="radio" id="dvpi_q4_no" name="dvpi_q6" value="No">
+												<label class="answer-label" for="dvpi_q4_no">No</label>
+											</div>
+
+											<!-- Question 5 -->
+											<div class="form-group">
+												<label for="dvpi_q5">5. Have you ever stalked anyone?</label>
+												<input type="text" id="dvpi_q5_times" name="dvpi_q7" placeholder="How many times?" style="margin-bottom: 10px;">
+												<input type="radio" id="dvpi_q5_yes" name="dvpi_q8" value="Yes">
+												<label class="answer-label" for="dvpi_q5_yes">Yes</label>
+												<input type="radio" id="dvpi_q5_no" name="dvpi_q8" value="No">
+												<label class="answer-label" for="dvpi_q5_no">No</label>
+											</div>
+
+											<!-- Question 6 -->
+											<div class="form-group">
+												<label for="dvpi_q6">6. Do you become jealous easily?</label>
+												<input type="text" id="dvpi_q6_reason" name="dvpi_q9" placeholder="Why?" style="margin-bottom: 10px;">
+												<input type="radio" id="dvpi_q6_yes" name="dvpi_q10" value="Yes">
+												<label class="answer-label" for="dvpi_q6_yes">Yes</label>
+												<input type="radio" id="dvpi_q6_no" name="dvpi_q10" value="No">
+												<label class="answer-label" for="dvpi_q6_no">No</label>
+											</div>
+
+											<!-- Question 7 -->
+											<div class="form-group">
+												<label for="dvpi_q7">7. Do you control others for their own good or to protect them?</label>
+												<input type="radio" id="dvpi_q7_yes" name="dvpi_q11" value="Yes">
+												<label class="answer-label" for="dvpi_q7_yes">Yes</label>
+												<input type="radio" id="dvpi_q7_no" name="dvpi_q11" value="No">
+												<label class="answer-label" for="dvpi_q7_no">No</label>
+											</div>
+
+											<!-- Question 8 -->
+											<div class="form-group">
+												<label for="dvpi_q8_yes">8. Do you feel you could lose control and abuse or assault your partner or family member?</label>
+												<input type="radio" id="dvpi_q8_yes" name="dvpi_q12" value="Yes">
+												<label class="answer-label" for="dvpi_q8_yes">Yes</label>
+												<input type="radio" id="dvpi_q8_no" name="dvpi_q12" value="No">
+												<label class="answer-label" for="dvpi_q8_no">No</label>
+											</div>
+
+											<!-- Question 9 -->
+											<div class="form-group">
+												<label for="dvpi_q9_yes">9. Do you use anger, intimidation or threats to control your partner or family member?</label>
+												<input type="text" id="dvpi_q9_times" name="dvpi_q13" placeholder="How many times?" style="margin-bottom: 10px;">
+												<input type="radio" id="dvpi_q9_yes" name="dvpi_q14" value="Yes">
+												<label class="answer-label" for="dvpi_q9_yes">Yes</label>
+												<input type="radio" id="dvpi_q9_no" name="dvpi_q14" value="No">
+												<label class="answer-label" for="dvpi_q9_no">No</label>
+											</div>
+
+											<!-- Question 10 -->
+											<div class="form-group">
+												<label for="dvpi_q10">10. Do you ever feel calm and composed when you are angry or during conflicts?</label>
+												<input type="radio" id="dvpi_q10_yes" name="dvpi_q15" value="Yes">
+												<label class="answer-label" for="dvpi_q10_yes">Yes</label>
+												<input type="radio" id="dvpi_q10_no" name="dvpi_q15" value="No">
+												<label class="answer-label" for="dvpi_q10_no">No</label>
+											</div>
+										
+										</div>
+
+										
+										<div class="form-group" style="margin-top: 70px;">
+											<button type="submit">Submit Assessment</button>
+										</div>
+									</form>
+									<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+									<h3 class="major">Member Benefits</h3>
+									<p>Here at SenSym we believe that Mental Health is a rising concern in America. We want to offer our clients the oppurtunity to have on-demand journaling and unqiue conseling sessions. This includes video walls that are able to reflect your emotions, facial recongition, and data-driven user profiles. </p>
+
+									<section class="features">
+										<article>
+											<a href="#" class="image"><img src="static/images/videoRoomPic.png" alt="" /></a>
+											<h3 class="major">Video Walls</h3>
+											<p>In our in-person couseling session, members will be greeted and logged into there user profile via facial recognition. During this session, video walls will reflect your emotions and behavior. These images are tuned by professional psychologists. </p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="static/images/userDataJournalPic.png" alt="" /></a>
+											<h3 class="major">Data-Driven User Profiles</h3>
+											<p>All members will have a user profile where one we can track personal growth and progress. We are going to be analyizing behavior patterns, emotions, and more. </p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+									</section>
+
+								</div>
+							</div>
+
+					</section>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p>Have any questions? Contact us and we will get back with you!</p>
+							<ul class="contact">
+								<li class="icon solid fa-home">
+									GCU<br />
+									3033 Camelback Road<br />
+									Phoenix, Az 85017
+								</li>
+								<li class="icon solid fa-phone">(000) 000-0000</li>
+								<li class="icon solid fa-envelope"><a href="#">information@SenSym.tld</a></li>
+								<li class="icon brands fa-twitter"><a href="#">twitter.com/SenSym-tld</a></li>
+								<li class="icon brands fa-facebook-f"><a href="#">facebook.com/SenSym-tld</a></li>
+								<li class="icon brands fa-instagram"><a href="#">instagram.com/SenSym-tld</a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; SenSym Inc. All rights reserved.</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/jquery.scrollex.min.js"></script>
+			<script src="static/js/browser.min.js"></script>
+			<script src="static/js/breakpoints.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>
